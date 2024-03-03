@@ -1,11 +1,10 @@
 "use client"
 
-import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import Image from "next/image";
+
 import HomepageContent from "../homepage/hp-content";
+import Navbar from "./navbar";
 
 export default function Homepage(){
 
@@ -26,33 +25,8 @@ export default function Homepage(){
 
     return (
         <div className="h-full w-full relative">
-           <div className={cn("w-full h-20 z-20 absolute top-0 left-0 flex items-center justify-between px-8",
-                isScrolled && " shadow-md shadow-slate-200"
-           )}>
-                <Image 
-                    alt="logo"
-                    src='/logo.svg'
-                    width={75}
-                    height={75}
-                    className="hover:animate-pulse transition duration-150"
-                />
-                <div className="flex flex-row gap-x-2">
-                    <Link href="/sign-in">
-                        <Button className="bg-gradient-to-r from-yellow-300 via-orange-500 to-red-500 hover:animate-bounce transition-all duration-150">
-                            Login
-                        </Button>
-                    </Link>
-
-                    <Link href="/sign-in">
-                        <Button variant={"outline"}>
-                            Register
-                        </Button>
-                    </Link>
-                </div>
-           </div>
-           <div className="pt-20">
-                <HomepageContent />
-           </div>
+            <HomepageContent />
+            <HomepageContent /><HomepageContent /><HomepageContent /><HomepageContent /><HomepageContent />
         </div>
     )
 }
