@@ -32,14 +32,14 @@ export default function Homepage(){
                 <Image 
                     alt="logo"
                     src='/logo.svg'
-                    width={75}
-                    height={75}
+                    width={90}
+                    height={90}
                     className="hover:animate-pulse transition duration-150"
                 />
-                <div className="flex flex-row gap-x-2">
+                <div className="flex flex-row gap-x-2"> 
                     <Link href="/sign-in">
-                        <Button className="bg-gradient-to-r from-yellow-300 via-orange-500 to-red-500 hover:animate-bounce transition-all duration-150">
-                            Login
+                        <Button className="bg-gradient-to-r from-yellow-300 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">
+                            Get started!
                         </Button>
                     </Link>
 
