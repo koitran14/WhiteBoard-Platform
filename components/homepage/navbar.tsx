@@ -26,13 +26,13 @@ const Navbar = () => {
             <div className={cn("shadow-sm shadow-slate-200 w-full h-24 z-20 flex items-center bg-white justify-between px-8 md:px-16 transition-all duration-300 hover:shadow-md hover:shadow-slate-200",
                 isScrolled && " backdrop-blur-md"
             )}>                 
-               <div className="w-full h-full flex flex-row items-center gap-x-2">
+               <div className="w-full h-full group flex flex-row items-center gap-x-2">
                     <Image 
                         alt="logo"
                         src='/logo.svg'
                         width={100}
                         height={100}
-                        className="hover:animate-pulse transition duration-150"
+                        className="group-hover:animate-pulse transition duration-150"
                     />
                     <span className="bg-gradient-to-r font-bold from-yellow-500 via-orange-500 to-red-600 hidden sm:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
                </div>

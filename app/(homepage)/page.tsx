@@ -1,5 +1,6 @@
 import Features from "@/components/homepage/features";
 import RevealOnScroll from "@/components/homepage/reveal-on-scroll";
+import Section from "@/components/homepage/section";
 import SliderInfo from "@/components/homepage/slider";
 import { auth } from "@clerk/nextjs";
 import Image from "next/image";
@@ -16,7 +17,8 @@ export default function HomePage() {
     if (userId) redirect (`/${userId}`);
 
     return (
-        <div className="overflow-x-hidden w-full h-full md:pt-5 flex flex-col gap-y-16"> 
+        <Section>
+            <div className="overflow-x-hidden w-full h-full md:pt-5 flex flex-col gap-y-16"> 
             <div className="bg-gradient-to-r sm:px-1 px-2 from-yellow-200/50 via-amber-200/90 to-red-100/70 h-full w-full flex flex-col md:flex-row items-center gap-y-2 rounded-xl md:rounded-l-xl md:rounded-br-xl md:rounded-tr-[80px] backdrop-blur-md">
                 <div className="md:w-[48%] px-3 w-full h-full flex flex-row items-center justify-center">
                     <SliderInfo />
@@ -32,7 +34,6 @@ export default function HomePage() {
                 </div>           
             </div>
 
-            <RevealOnScroll>
                 <div className="w-full h-full flex flex-col gap-y-4">
                     <h1 className="w-full text-center text-slate-600 text-2xl">Developed by</h1>
                     <div className="w-full inline-flex flex-nowrap ">
@@ -45,7 +46,6 @@ export default function HomePage() {
                         </ul>
                     </div>
                 </div>
-            </RevealOnScroll>
             <RevealOnScroll>
                 <div className="w-full py-6 rounded-xl h-full flex flex-col gap-y-4 overflow-hidden">
                     <h1 className="w-full text-center py-4 text-4xl font-semibold text-orange-500">Features</h1>
@@ -54,5 +54,6 @@ export default function HomePage() {
             </RevealOnScroll>
 
         </div>
+        </Section>
     )
 }
