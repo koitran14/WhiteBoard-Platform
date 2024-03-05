@@ -23,8 +23,8 @@ const Navbar = () => {
     }, []);
     
     return ( 
-            <div className={cn("w-full h-24 z-20 flex items-center bg-white justify-between px-8 md:px-16 transition-all duration-300 hover:shadow-md hover:shadow-slate-200",
-                isScrolled && " shadow-md shadow-slate-200 backdrop-blur-md bg-transparent"
+            <div className={cn("shadow-sm shadow-slate-200 w-full h-24 z-20 flex items-center bg-white justify-between px-8 md:px-16 transition-all duration-300 hover:shadow-md hover:shadow-slate-200",
+                isScrolled && " backdrop-blur-md"
             )}>                 
                <div className="w-full h-full flex flex-row items-center gap-x-2">
                     <Image 
@@ -34,7 +34,7 @@ const Navbar = () => {
                         height={100}
                         className="hover:animate-pulse transition duration-150"
                     />
-                    <span className="bg-gradient-to-r font-bold from-yellow-500 via-orange-500 to-red-600 inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
+                    <span className="bg-gradient-to-r font-bold from-yellow-500 via-orange-500 to-red-600 hidden sm:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
                </div>
                 <div className="flex flex-row gap-x-2"> 
                     <Link href="/sign-in">

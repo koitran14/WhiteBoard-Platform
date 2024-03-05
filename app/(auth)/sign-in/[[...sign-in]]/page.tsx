@@ -1,9 +1,23 @@
+import { Button } from "@/components/ui/button";
 import { SignIn } from "@clerk/nextjs";
+import { Home } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page (){
     return (
-        <div className=" w-full h-full px-28 flex justify-between items-center flex-row gap-x-5">
+        <div className="relative w-full md:grid md:grid-cols-2 h-full md:px-28 px-0 flex justify-between items-center flex-row gap-x-5 bg-gradient-to-tr from-yellow-200 via-orange-200 to-red-200">
+            <div className="absolute top-8 left-12">
+                <div className="flex flex-row gap-x-2 items-center">
+                    <Link href='/'>
+                        <Button size={'smallerIcon'} variant={'outline'} className="rounded-full bg-transparent border-slate-600">
+                            <Home className="w-5 h-5 text-slate-600"/>
+                        </Button>
+                    </Link>
+                    <div className="text-xl text-slate-700">/</div>
+                    <div className="text-xl text-slate-600">Sign In</div>
+                </div>
+            </div> 
             <div className="md:block hidden">
                 <Image
                     alt="login-logo"
@@ -12,7 +26,7 @@ export default function Page (){
                     height={500}
                 />
             </div>
-            <div>
+            <div className="w-full h-full md:pr-4 pr-0 flex items-center md:justify-end justify-center">
                 <SignIn />
             </div>
         </div>
