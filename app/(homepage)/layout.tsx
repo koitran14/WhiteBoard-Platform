@@ -1,4 +1,5 @@
-import Navbar from "@/components/auth/navbar";
+import Footer from "@/components/homepage/footer";
+import Navbar from "@/components/homepage/navbar";
 
 const HomePageLayout = ({
     children
@@ -7,11 +8,14 @@ const HomePageLayout = ({
 }) => {
     return (
         <div className="w-full h-full relative">
-            <div className="w-full h-fit fixed top-0 left-0 z-20">
+            <div className="w-full h-fit fixed top-0 left-0 z-50">
                 <Navbar/>
             </div>
-            <div className="pt-24">
+            <div className="pt-28 md:px-24 px-4">
                 {children}
+            </div>    
+            <div className="w-full">
+                <Footer/>
             </div>
         </div>
     );
