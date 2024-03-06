@@ -12,11 +12,11 @@ const HomePageLayout = ({
             <div className="w-full h-fit fixed top-0 left-0 z-50">
                 <Navbar/>
             </div>
-            <div className="pt-28 md:px-24 px-4">
-                <Section>
+            <Section >
+                <div  className="pt-28 md:px-24 px-4">
                     {children}
-                </Section>
-            </div>    
+                </div> 
+            </Section>   
             <div className="w-full">
                 <Footer/>
             </div>

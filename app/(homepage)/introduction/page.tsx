@@ -11,14 +11,14 @@ export default function IntroPage(){
                     <Home className="w-5 h-5 font-light text-slate-500"/>
                 </Link> 
                 <ChevronRight className="w-6 h-6 text-slate-500" />
-                <h1 className="text-md">Introduction</h1>
+                <h1 className="text-lg text-slate-500 font-medium">Introduction</h1>
             </div>
-            <div className="">
+            <div className="pt-2 flex flex-col gap-y-1">
                 <h1 className="text-4xl font-semibold">Introduction</h1>
                 <p className="text-slate-500 sm:w-[60%] w-full">Accelerate your design process with Sketcha — build, iterate, and create at a swift pace.</p>
             </div>
-            <div className=" py-3">
-                <p className="text-lg  inline">
+            <div className=" py-3"> 
+                <p className="text-lg leading-loose inline">
                     Welcome to <span className="w-fit inline font-semibold text-orange-500 decoration-wavy underline">Sketcha</span>, 
                     your digital canvas for seamless collaboration. 
                     Transform ideas into reality as you work together in real-time, 
@@ -29,8 +29,6 @@ export default function IntroPage(){
                     in this dynamic online workplace.
                 </p>
             </div>
-
-            <div className="w-[50%] h-2 border-b-2 py-2"/>
 
             <div className="flex flex-col gap-y-1 pt-2">
                 <h1 className="font-semibold text-xl">Seamless Collaboration</h1>
