@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Features from "@/components/homepage/features";
 import RevealOnScroll from "@/components/homepage/reveal-on-scroll";
 import Section from "@/components/homepage/section";
@@ -23,12 +24,12 @@ export default function HomePage() {
                 <div className="md:w-[48%] px-3 w-full h-full flex flex-row items-center justify-center">
                     <SliderInfo />
                 </div>
-                <div className="w-full px-1 md:px-0 md:w-[53%] rounded-xl hover:scale-[1.01] transition-all duration-500 ease-in-out">
+                <div className="w-full items-center px-1 md:px-0 md:w-[53%] rounded-xl hover:scale-[1.01] transition-all duration-500 ease-in-out">
                     <Image 
                         alt="intro"
                         src="/homepage/intro.png"
                         width={900}
-                        height={400}
+                        height={500}
                         className="hover:bg-gradient-to-r p-1 hover:from-yellow-400 hover:via-orange-400 hover:to-red-600  md:rounded-bl-[80px] md:rounded-tr-[80px] rounded-xl"
                     />
                 </div>           
@@ -36,13 +37,13 @@ export default function HomePage() {
 
                 <div className="w-full h-full flex flex-col gap-y-4">
                     <h1 className="w-full text-center text-slate-600 text-2xl">Developed by</h1>
-                    <div className="w-full inline-flex flex-nowrap ">
-                        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
-                            <li><Image src="/homepage/tech-logo/nextjs.svg" alt="nextjs" width={180} height={180}/></li>
-                            <li><Image src="/homepage/tech-logo/tailwind.svg" alt="nextjs" width={180} height={180}/></li>
-                            <li><Image src="/homepage/tech-logo/mongo.svg" alt="nextjs" width={180} height={180}/></li>
-                            <li><Image src="/homepage/tech-logo/clerk.svg" alt="nextjs" width={200} height={200}/></li>
-                            <li><Image src="/homepage/tech-logo/liveblocks.svg" alt="nextjs" width={200} height={200}/></li>
+                    <div className="w-full h-full inline-flex flex-nowrap ">
+                        <ul className="flex w-fit items-center justify-center md:justify-start [&_li]:mx-6 [&_img]:max-w-none animate-infinite-scroll">
+                            <li><Image src="/homepage/tech-logo/nextjs.svg" alt="nextjs" width={200} height={200}/></li>
+                            <li><Image src="/homepage/tech-logo/tailwind.svg" alt="tailwind" width={200} height={200}/></li>
+                            <li><Image src="/homepage/tech-logo/mongo.svg" alt="mongo" width={200} height={200}/></li>
+                            <li><Image src="/homepage/tech-logo/clerk.svg" alt="clerk" width={200} height={200}/></li>
+                            <li><Image src="/homepage/tech-logo/liveblocks.svg" alt="liveblocks" width={320} height={320}/></li>
                         </ul>
                     </div>
                 </div>

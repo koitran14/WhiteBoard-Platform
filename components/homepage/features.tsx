@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Features = () => {
     return (
@@ -14,7 +14,7 @@ const Features = () => {
                     <div className="absolute w-full h-full sm:opacity-0 transition-all duration-700 sm:group-hover:opacity-100 top-0 left-0 bg-gradient-to-r from-black/70 via:to-transparent to-transparent"/>
                     <div className="text-white w-[70%] sm:group-hover:scale-[1.02] sm:opacity-0 transition-all duration-700 sm:group-hover:opacity-100 absolute top-[44%] left-[10%] z-20">
                         <h1 className="md:text-4xl text-3xl">Collaboration</h1>
-                        <p className="text-sm font-light">supply a real-time workplace with invite features.</p>
+                        <p className="text-sm font-light">supplies a real-time workplace with invite features.</p>
                     </div>
                 </div>
                 <div className=" group w-full ease-in-out overflow-hidden relative flex flex-col items-center transition-all duration-700 hover:scale-[1.025] hover:shadow-md hover:shadow-slate-300 h-72 sm:rounded-bl-[50px]">
