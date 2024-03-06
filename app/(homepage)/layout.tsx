@@ -10,7 +10,7 @@ const HomePageLayout = ({
             <div className="w-full h-fit fixed top-0 left-0 z-20">
                 <Navbar/>
             </div>
-            <div className="pt-20">
+            <div className="pt-24">
                 {children}
             </div>
         </div>
