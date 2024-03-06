@@ -74,15 +74,9 @@ const SliderInfo = () => {
                             </div>
                             <div className='w-full h-full flex flex-row gap-x-2 md:justify-start justify-center items-center'>
                                 <Link href="/sign-in">
-                                    <Button className=" flex font-semibold flex-row gap-x-2 px-4 py-6 md:text-xl text-lg bg-gradient-to-r from-yellow-400/90 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">
+                                    <Button className=" text-white flex font-semibold flex-row gap-x-2 px-4 py-6 md:text-xl text-lg bg-gradient-to-r from-yellow-400/90 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">
                                         Get started
                                         <MoveRight />
-                                    </Button>
-                                </Link>
-                                <Link href="https://github.com/koitran14/WhiteBoard-Platform">
-                                    <Button variant={"outline"} className=" flex font-semibold flex-row gap-x-2 px-4 py-6 text-lg hover:scale-105 transition ease-in-out hover:duration-900">
-                                        Github
-                                        <Github className='w-fit h-fit p-1'/>
                                     </Button>
                                 </Link>
                             </div>
@@ -97,7 +91,7 @@ const SliderInfo = () => {
                 <span className="bg-gradient-to-r font-bold dark:text-orange-500 from-yellow-500 via-orange-500 to-red-600 inline-block text-transparent bg-clip-text md:text-7xl text-5xl">Sketcha</span>
                 <p className='w-full sm:w-[80%] text-center px-2 font-medium text-xl text-slate-700'>Teamworking, brainstorming, visualizing with note-taking and drawing tools.</p>
                 <Link href="/sign-in">
-                    <Button className=" flex font-semibold flex-row gap-x-2 px-4 py-6 md:text-xl text-lg bg-gradient-to-r from-yellow-400/90 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">
+                    <Button className=" text-white flex font-semibold flex-row gap-x-2 px-4 py-6 md:text-xl text-lg bg-gradient-to-r from-yellow-400/90 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">
                         Get started
                         <MoveRight />
                     </Button>
