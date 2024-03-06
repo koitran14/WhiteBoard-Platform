@@ -1,5 +1,6 @@
 import Footer from "@/components/homepage/footer";
 import Navbar from "@/components/homepage/navbar";
+import Section from "@/components/homepage/section";
 
 const HomePageLayout = ({
     children
@@ -12,7 +13,9 @@ const HomePageLayout = ({
                 <Navbar/>
             </div>
             <div className="pt-28 md:px-24 px-4">
-                {children}
+                <Section>
+                    {children}
+                </Section>
             </div>    
             <div className="w-full">
                 <Footer/>

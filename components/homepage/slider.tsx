@@ -35,8 +35,8 @@ const SliderInfo = () => {
     };
     return (
        <div className='w-full h-full'>
-           <div className='w-full h-full md:block hidden'>
-            <Swiper
+            <div className='w-full h-full md:block hidden'>
+                <Swiper
                     loop={true}
                     spaceBetween={0}
                     centeredSlides={true}
@@ -94,7 +94,7 @@ const SliderInfo = () => {
            {/* script for mobile web */}
             <div className='md:hidden w-full h-full flex flex-col gap-y-3 items-center pt-10 pb-5 justify-center'>
                 <span className='text-5xl animate-bounce'>👋</span>
-                <span className="bg-gradient-to-r font-bold from-yellow-500 via-orange-500 to-red-600 inline-block text-transparent bg-clip-text md:text-7xl text-5xl">Sketcha</span>
+                <span className="bg-gradient-to-r font-bold dark:text-orange-500 from-yellow-500 via-orange-500 to-red-600 inline-block text-transparent bg-clip-text md:text-7xl text-5xl">Sketcha</span>
                 <p className='w-full sm:w-[80%] text-center px-2 font-medium text-xl text-slate-700'>Teamworking, brainstorming, visualizing with note-taking and drawing tools.</p>
                 <Link href="/sign-in">
                     <Button className=" flex font-semibold flex-row gap-x-2 px-4 py-6 md:text-xl text-lg bg-gradient-to-r from-yellow-400/90 via-orange-500 to-red-500 hover:scale-105 transition ease-in-out hover:duration-900">

@@ -6,13 +6,13 @@ import Link from "next/link";
 export default function Page (){
     return (
         <div className="relative w-full md:grid md:grid-cols-2 h-full md:px-28 px-0 flex justify-between items-center flex-row gap-x-5 bg-gradient-to-tr from-yellow-200 via-orange-200 to-red-200">
-            <div className="absolute top-8 left-12">
+            <div className="absolute top-10 md:left-20 left-10">
                 <div className="flex flex-row gap-x-2 items-center">
-                    <Link href='/' className="text-slate-600 hover:text-orange-500 hover:scale-110 transition-all duration-300">
+                    <Link href='/' className="text-slate-500 hover:text-orange-500 hover:scale-110 transition-all duration-300">
                         <Home className="w-5 h-5 "/>
                     </Link>
                     <div className="text-xl text-slate-700">/</div>
-                    <div className="text-xl text-slate-600">Sign In</div>
+                    <div className="text-lg font-medium text-black">Sign In</div>
                 </div>
             </div> 
             <div className="md:block hidden">
@@ -23,7 +23,7 @@ export default function Page (){
                     height={500}
                 />
             </div>
-            <div className="w-full h-full md:pr-4 pr-0 flex items-center md:justify-end justify-center">
+            <div className="px-3 w-full h-full md:pr-4 flex items-center md:justify-end justify-center">
                 <SignIn />
             </div>
         </div>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function Page(){
     return (
         <div className=" w-full h-full">
-            <div className = "md:block hidden">
+            <div>
                 {/* <Image
                     alt="login-login"
                     src="/login-logo.svg"
@@ -21,9 +21,9 @@ export default function Page(){
                         </h1>
                         </div>
 
-                        <p className="py-10 text-center text-gray-700 text-xl">
+                        <div className="py-10 text-center text-gray-700 text-xl">
                             We are a small passionate group with mission that help people teamworking, brainstorming and visualizing idea easily.
-                        </p>
+                        </div>
                     </div>
                     <section className="">
                         <div className="py-10">
@@ -167,9 +167,6 @@ export default function Page(){
                             <p>
                             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="underline">Get in touch</a>
                             </p>
-                        </div>
-                        <div className="w-full h-full flex justify-center">
-                            <div className="">Copyright © 2024 Sketcha. All rights reserved.</div>
                         </div>
                         
                     </section>

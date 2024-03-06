@@ -20,7 +20,7 @@ export default function HomePage() {
     return (
         <Section>
             <div className="overflow-x-hidden w-full h-full md:pt-5 flex flex-col gap-y-16"> 
-            <div className="bg-gradient-to-r sm:px-1 px-2 from-yellow-200/50 via-amber-200/90 to-red-100/70 h-full w-full flex flex-col md:flex-row items-center gap-y-2 rounded-xl md:rounded-l-xl md:rounded-br-xl md:rounded-tr-[80px] backdrop-blur-md">
+            <div className="bg-gradient-to-r sm:px-1 px-2 from-yellow-200/50 dark:from-yellow-200 dark:via-amber-200 dark:to-rose-300 via-amber-200/90 to-red-100/70 h-full w-full flex flex-col md:flex-row items-center gap-y-2 rounded-xl md:rounded-l-xl md:rounded-br-xl md:rounded-tr-[80px] backdrop-blur-md">
                 <div className="md:w-[48%] px-3 w-full h-full flex flex-row items-center justify-center">
                     <SliderInfo />
                 </div>
@@ -35,9 +35,9 @@ export default function HomePage() {
                 </div>           
             </div>
 
-                <div className="w-full h-full flex flex-col gap-y-4">
-                    <h1 className="w-full text-center text-slate-600 text-2xl">Developed by</h1>
-                    <div className="w-full h-full inline-flex flex-nowrap ">
+                <div className="w-full h-full flex flex-col gap-y-4 ">
+                    <div className="w-full dark:py-4 text-center dark:text-white text-slate-600 text-2xl">Developed by</div>
+                    <div className="w-full h-full inline-flex flex-nowrap dark:backdrop-blur-md dark:bg-gradient-to-b dark:from-red-300 dark:via-lime-200 dark:to-orange-200/80 dark:rounded-2xl dark:md:rounded-b-2xl dark:md:rounded-t-[80px]">
                         <ul className="flex w-fit items-center justify-center md:justify-start [&_li]:mx-6 [&_img]:max-w-none animate-infinite-scroll">
                             <li><Image src="/homepage/tech-logo/nextjs.svg" alt="nextjs" width={200} height={200}/></li>
                             <li><Image src="/homepage/tech-logo/tailwind.svg" alt="tailwind" width={200} height={200}/></li>
@@ -48,7 +48,7 @@ export default function HomePage() {
                     </div>
                 </div>
             <RevealOnScroll>
-                <div className="w-full py-6 rounded-xl h-full flex flex-col gap-y-4 overflow-hidden">
+                <div className="w-full rounded-xl h-full flex flex-col gap-y-4 overflow-hidden">
                     <h1 className="w-full text-center py-4 text-4xl font-semibold text-orange-500">Features</h1>
                     <Features />
                 </div>
