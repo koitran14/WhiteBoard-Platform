@@ -170,6 +170,44 @@ export default function Page(){
                         </div>
                         
                     </section>
+                    <section>
+                        <footer className="bg-amber-800 w-full h-60 flex flex-row ">
+                            <div className="group flex flex-row items-center gap-x-2 px-20">
+                                {/* <img    alt="logo" 
+                                        loading="lazy"
+                                        width="120" 
+                                        height="120" 
+                                        decoding="async" 
+                                        data-nimg="1" 
+                                        className="group-hover:animate-pulse transition duration-150" 
+                                        style="color:transparent" 
+                                        src="/logo.svg"> */}
+                                <img src="/logo.svg" alt="logo" loading="lazy"
+                                        width="120" 
+                                        height="120" 
+                                        decoding="async" 
+                                        data-nimg="1" 
+                                        className="group-hover:animate-pulse transition duration-150"
+                                         />
+                                <span className="hidden bg-gradient-to-r font-bold text-white md:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
+                            </div>
+                            <div className="py-10 px-20">
+                                <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">Help and Advice</div>
+                                <div className="text-white text-secondary">
+                                    <ul className="hover:underline">Getting started</ul>
+                                    <ul className="hover:underline">Feartures</ul>
+                                </div>
+                            </div>
+                            <div className="py-10">
+                                <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">About us</div>
+                                <div className="text-white text-secondary">
+
+                                    <ul className="hover:underline">About us</ul>
+                                    <ul className="hover:underline">Github</ul>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
                     <div className="flex">
                         {/* <div className="">Trans</div>
                         <div>NightMode</div> */}
@@ -182,3 +220,5 @@ export default function Page(){
         </div>
     )
 }
+
+// sua lai mau bg footer 
