@@ -25,17 +25,17 @@ export default function Page(){
                             We are a small passionate group with mission that help people teamworking, brainstorming and visualizing idea easily.
                         </div>
                     </div>
-                    <section className="">
-                        <div className="py-10">
+                    <section>
+                        <div className="py-10 w-full">
                             <div className="flex justify-center">
                                 <div className=" text-5xl font-semibold bg-gradient-to-r from-orange-300 to-red-500 text-transparent bg-clip-text w-fit py-8">
                                     Our Values
                                 </div>
                             </div>
-                            <div className="flex gap-x-14 px-9 justify-center">
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
+                            <div className="flex gap-x-14 px-9 justify-center items-center w-full overflow-x-auto">
+                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300 flex-shrink-0"></div>
+                                <div className=" flex-shrink-0 border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
+                                <div className="flex-shrink-0 border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
                             </div>
 
 

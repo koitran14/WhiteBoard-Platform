@@ -26,7 +26,7 @@ const Navbar = () => {
     }, []);
     
     return ( 
-            <div className={cn("shadow-sm shadow-slate-200 dark:shadow-slate-900 bg-white/60 dark:bg-black/80 w-full h-24 z-20 flex flex-row items-center justify-between px-8 md:px-16 transition-all duration-300 hover:shadow-md hover:shadow-slate-200",
+            <div className={cn("shadow-sm shadow-slate-200 dark:shadow-slate-900 bg-white dark:bg-black/80 w-full h-24 z-20 flex flex-row items-center justify-between px-8 md:px-16 transition-all duration-300 hover:shadow-md hover:shadow-slate-200",
                 isScrolled && " backdrop-blur-md"
             )}>                 
                <div className="w-fit h-full group flex flex-row items-center gap-x-2">
