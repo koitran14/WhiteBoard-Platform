@@ -64,7 +64,7 @@ export function NavMenu() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-tr from-orange-100 via-yellow-50 to-white dark:from-yellow-600 dark:via-orange-700 dark:to-black/70 p-6 no-underline outline-none focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-tr from-orange-300/60 via-yellow-100 to-white dark:from-yellow-600 dark:via-orange-700 dark:to-black/70 p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
                     <Image alt='logo'src={'/logo.svg'} width={75} height={75} />
@@ -81,7 +81,7 @@ export function NavMenu() {
                 Accelerate your design process with Sketcha—build.              
               </ListItem>
               <ListItem href="/about-us" title="About Us">
-                Couple words about this project.
+                Sketcha&apos;s development team and a few words about this project.
               </ListItem>
               <ListItem href="/sign-in" title="Get Started">
                 Begin your journey with Sketcha by becoming a member.
