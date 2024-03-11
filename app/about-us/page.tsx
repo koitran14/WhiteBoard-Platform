@@ -1,8 +1,20 @@
+"use client"
 
 // import { AboutUs } from "";
 import { FileX, HeartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from 'next/link'
+import {TypeAnimation} from "react-type-animation"
+import {motion} from "framer-motion"
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
+  } from "@/components/ui/navigation-menu"
 export default function Page(){
     return (
         <div className=" w-full h-full">
@@ -14,7 +26,117 @@ export default function Page(){
                     height={100}
                 /> */}
                 <div>
-                    <div>
+                <section>
+                        
+                        <div className="w-full h-64 bg-gray-50 z-0">
+                        <p className="font-semibold text-7xl text-gray-50 px-96 z-20">Who</p>
+                        <p className="font-semibold text-7xl text-gray-50 px-96 z-20">Who</p>
+
+
+                        <h1 className="font-semibold text-7xl text-orange-300 px-96 z-20">Who</h1>
+                        <h2 className="font-semibold text-7xl text-orange-300 px-96 z-20">We are</h2>
+                        </div>
+                        <div className="mb-6 text-[36px] lg:text-[60px] font-serif font-semibold uppercase leading-[1] px-96 py-12">
+                            <span className="text-black mr-4"></span>
+                                <TypeAnimation 
+                                    sequence={[
+                                        'Development...',
+                                        2000,
+                                        'Brainstorming...',
+                                        2000,
+                                        'Visualization...',
+                                        2000,
+                                        'Colaboration...',
+                                        2000,       
+                                    ]}
+                                    speed={50}
+                                    className="text-accent text-orange-100"
+                                    wrapper="span"
+                                    repeat={Infinity}
+                                    />
+                            
+                        </div>
+                        <div>
+                            <div className="absolute bg-gray-100 h-96 w-7/12 z-[-1] -right-0"></div>
+                            <div className="flex justify-center w-full h-full py-10 gap-x-3">
+                                {/* Dang Khoi____________________________________________  */}
+                                <div className="group relative bottom-7 overflow-hidden border-2 
+                                                border-white/50">
+                                    {/*overlay */}
+                                    <div className="group-hover:bg-black/70 w-full h-full absolute z-40 
+                                                    transition-all duration-300">
+                                    </div>
+                                    
+                                        <Image
+                                            src="/src/KoiKoi22.jpg" 
+                                            alt="Tran Ngoc Dang Khoi" 
+                                            width={300}
+                                            height={200}
+                                            className="group-hover:scale-125 transition-all duration-500"
+                                            />                       
+                                    {/* title */}
+                                    <div className="absolute -bottom-full left-5 group-hover:bottom-24 
+                                                    transition-all duration-500 z-50">
+                                        <span className="text-white text-xl">Trần Ngọc Đăng Khôi</span>
+                                    </div>
+                                    {/* title */}
+                                    <div className="absolute -bottom-full left-5 group-hover:bottom-14 
+                                                    transition-all duration-700 z-50">
+                                        <span className="text-white text-xl">
+                                            ITCSIU21197
+                                        </span>
+                                    </div>
+
+                                </div>
+                                {/* Quang Huy----------------------------- */}
+                                <div className="group relative top-7 overflow-hidden border-2 
+                                                border-white/50">
+                                    {/*overlay */}
+                                    <div className="group-hover:bg-black/70 w-full h-full absolute z-40 
+                                                    transition-all duration-300">
+                                    </div>
+                                    <Link href="https://github.com/KengG1M" className="w-40 h-40">
+                                        <Image 
+                                            src="/src/QiQi22.jpg" 
+                                            alt="Tran Phuong Quang Huy" 
+                                            width={300}
+                                            height={200}
+                                            className="group-hover:scale-125 transition-all duration-500"
+                                            />                       
+                                    </Link>
+                                    
+                                    {/* title */}
+                                    <div className="absolute -bottom-full left-5 group-hover:bottom-24 
+                                                    transition-all duration-500 z-50">
+                                        <span className="text-white text-xl">Trần Phương Quang Huy</span>
+                                    </div>
+                                    {/* title */}
+                                    <div className="absolute -bottom-full left-5 group-hover:bottom-14 
+                                                    transition-all duration-700 z-50">
+                                        <span className="text-white text-xl">
+                                            ITCSIU21071
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className=" text-black px-20 py-10">
+                                    <h1 className="py-6 font-serif font-semibold text-2xl">
+                                        Introduce
+                                    </h1>
+                                    <p className="line-clamp-4">
+                                        We studied at Computer Science and Engineering <br />
+                                                    (VNU-HCM International University) which
+                                                    a small passionate group with mission <br />that help people teamworking,  brainstorming and visualizing idea easily...
+                                        <br />
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                        
+                    </section>
+                    {/* <div>
                         <div className="w-full flex justify-center">
                         <h1 className="text-7xl font-semibold bg-gradient-to-r from-yellow-500 to-orange-500 text-transparent bg-clip-text w-fit">
                             About
@@ -24,7 +146,7 @@ export default function Page(){
                         <div className="py-10 text-center text-gray-700 text-xl">
                             We are a small passionate group with mission that help people teamworking, brainstorming and visualizing idea easily.
                         </div>
-                    </div>
+                    </div> */}
                     <section className="">
                         <div className="py-10">
                             <div className="flex justify-center">
@@ -32,10 +154,46 @@ export default function Page(){
                                     Our Values
                                 </div>
                             </div>
-                            <div className="flex gap-x-14 px-9 justify-center">
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
-                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300"></div>
+                            <div className="flex gap-x-14 px-9 justify-center overflow-x-auto font-sans text-xl text-center">
+                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300 shrink-0">
+                                    {/* <img src="/src/practice.png" alt="" /> */}
+                                    <div className="px-14 py-14">
+                                        <Image
+                                                src="/src/practice.png" 
+                                                alt="" 
+                                                width={200}
+                                                height={200}
+                                                className="hover:scale-125 transition-all duration-500"
+                                                />               
+                                    </div>            
+                                    <span>Practice make perfect</span>
+                                </div>
+                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300 shrink-0">
+                                    <div className="px-14 py-14">
+                                    <Image
+                                                src="/src/tech.png" 
+                                                alt="" 
+                                                width={200}
+                                                height={200}
+                                                className="hover:scale-125 transition-all duration-500"
+                                                />              
+                                    </div>         
+                                    <span>
+                                        Update latest technology
+                                    </span>
+                                </div>
+                                <div className=" border-orange-200 border-8 rounded-lg h-96 w-80 bg-orange-300 shrink-0">
+                                    <div className="px-14 py-14">
+                                    <Image
+                                                src="/src/community.png" 
+                                                alt="" 
+                                                width={200}
+                                                height={200}
+                                                className="hover:scale-125 transition-all duration-500 justify-center items-center"
+                                                />                       
+                                    </div>
+                                    <span>Provide value for community</span>
+                                </div>
                             </div>
 
 
@@ -72,85 +230,8 @@ export default function Page(){
 
                         </div>
                     </section>
-                    <section className="py-10">
-                        <div className="flex justify-center">
-                            <h2 className="text-5xl font-semibold bg-gradient-to-r from-red-500 to-rose-300 text-transparent bg-clip-text w-fit py-3">
-                                Dev Teams
-                            </h2>
-                        </div>
-                        <div className="flex py-10 overflow-x-auto gap-x-3 justify-center">
-                            {/* <div >
-                                <Link href="https://github.com/koitran14" className="w-40 h-40">
-                                        <Image 
-                                            src="/src/KOIKOI.jpg" 
-                                            alt="Tran Ngoc Dang Khoi" 
-                                            width={300}
-                                            height={200}
-                                            className="border-2 rounded-md"
-                                            />
-                                </Link>
-                                <div className="py-5 underline underline-offset-4 decoration-4 decoration-sky-600 hover:decoration-blue-400 ">
-                                    Trần Ngọc Đăng Khôi
-                                    <div>ITCSIU21197</div>
-                                </div>
-                            </div> */}
+                    
 
-                            <button className="transition ease-in-out delay-150 bg-orange-200 hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-orange-200 to-orange-300 duration-300 rounded-md">
-                                <div >
-                                    <Link href="https://github.com/koitran14" className="w-40 h-40">
-                                            <Image 
-                                                src="/src/KOIKOI.jpg" 
-                                                alt="Tran Ngoc Dang Khoi" 
-                                                width={300}
-                                                height={200}
-                                                className="border-2 rounded-md"
-                                                />
-                                    </Link>
-                                    <div className="py-5 underline underline-offset-4 decoration-3 
-                                                decoration-rose-600 
-                                                hover:decoration-rose-400 ">
-                                        Trần Ngọc Đăng Khôi
-                                        <div>ITCSIU21197</div>
-                                    </div>
-                                </div>
-                            </button>
-                            <button className="transition ease-in-out delay-150 bg-orange-200 hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-orange-200 to-orange-300 duration-300 rounded-md">
-                                <div>
-                                <Link href="https://github.com/KengG1M" className="w-40 h-40">
-                                            <Image 
-                                                src="/src/QIQI.jpg" 
-                                                alt="Tran Phuong Quang Huy" 
-                                                width={268}
-                                                height={200}
-                                                className="border-2 rounded-md"
-                                                />
-                                    </Link>
-                                    <div className="py-5 
-                                                    underline underline-offset-4 decoration-3 
-                                                    decoration-rose-600 
-                                                    hover:decoration-rose-400">
-                                        Trần Phương Quang Huy
-                                        <div> ITCSIU21071</div>
-                                    </div>
-                                </div>
-                            </button>
-                            {/* <div>
-                            <Link href="https://github.com/KengG1M" className="w-40 h-40">
-                                        <Image 
-                                            src="/src/QIQI.jpg" 
-                                            alt="Tran Phuong Quang Huy" 
-                                            width={268}
-                                            height={200}
-                                            className="border-2 rounded-full"
-                                            />
-                                </Link>
-                                <div className="py-5">
-                                    Trần Phương Quang Huy
-                                    <div> ITCSIU21071</div>
-                                </div>
-                            </div> */}
-                        </div>
-                    </section>
                     <section>
                         <div className="prose mx-auto mt-14 text-center dark:prose-invert py-10 px-20">
                             <p>
@@ -194,7 +275,13 @@ export default function Page(){
                             <div className="py-10 px-20">
                                 <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">Help and Advice</div>
                                 <div className="text-white text-secondary">
-                                    <ul className="hover:underline">Getting started</ul>
+                                    <ul className="hover:underline">
+                                        <a href="/sign-in">Getting started</a>
+                                    </ul>
+                                    <ul className="hover:underline">
+                                        <a href="/introduction">Introduction</a>
+                                    </ul>
+
                                     <ul className="hover:underline">Feartures</ul>
                                 </div>
                             </div>
@@ -202,8 +289,16 @@ export default function Page(){
                                 <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">About us</div>
                                 <div className="text-white text-secondary">
 
-                                    <ul className="hover:underline">About us</ul>
-                                    <ul className="hover:underline">Github</ul>
+                                    <ul className="hover:underline">
+                                        <a href="about-us">About us</a>
+                                    </ul>
+                                    <ul className="hover:underline">
+                                        <a href="https://github.com/koitran14/WhiteBoard-Platform">GitHub</a>
+                                    </ul>
+                                    <ul className="hover:underline">
+                                        <a href="">Contact</a>
+                                    </ul>
+                                    
                                 </div>
                             </div>
                         </footer>
