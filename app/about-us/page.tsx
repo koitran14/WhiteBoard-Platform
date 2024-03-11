@@ -20,17 +20,15 @@ export default function Page(){
         <div className=" w-full h-full">
             <div>
                 <div>
-                <section>
+                    <section>
                         
                         <div className="w-full h-[190px] bg-orange-200 z-0">
-                        {/* <p className="font-semibold text-7xl text-orange-400 px-96 z-20">Who</p> */}
-                        <p className="font-semibold text-7xl text-orange-300 px-96 z-20">Who</p>
-
-
-                        <h1 className="font-semibold text-7xl text-orange-500 px-96 z-20">Who</h1>
-                        <h2 className="font-semibold text-7xl text-orange-500 px-96 z-20">We are</h2>
+                        <p className="font-semibold text-7xl text-orange-300 md:px-20 lg:px-96 z-20">Who</p>
+                        <h1 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">Who</h1>
+                        <h2 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">We are</h2>
                         </div>
-                        <div className="mb-6 text-[36px] lg:text-[80px] font-serif font-semibold uppercase leading-[1] px-96 py-12">
+                        <div className="mb-6 text-[36px] lg:text-[80px] font-serif font-semibold 
+                                        uppercase leading-[1] md:px-20 lg:px-96 py-12">
                             <span className=""></span>
                                 <TypeAnimation 
                                     sequence={[
@@ -54,8 +52,7 @@ export default function Page(){
                             <div className="absolute bg-gray-100 h-96 w-8/12 z-[-1] -right-0"></div>
                             <div className="flex justify-center font-mono w-full h-full py-10 gap-x-3">
                                 {/* Dang Khoi____________________________________________  */}
-                                <div className="group relative bottom-7 overflow-hidden border-2 
-                                                border-white/50">
+                                <div className="group relative bottom-7 overflow-hidden">
                                     {/*overlay */}
                                     <div className="group-hover:bg-black/70 w-full h-full absolute z-40 
                                                     transition-all duration-300">
@@ -69,22 +66,21 @@ export default function Page(){
                                             className="group-hover:scale-125 transition-all duration-500"
                                             />                       
                                     {/* title */}
-                                    <div className="absolute -bottom-full left-5 group-hover:bottom-24 
+                                    <div className="absolute -bottom-full md:left-3 lg:left-5 group-hover:bottom-24 
                                                     transition-all duration-500 z-50">
-                                        <span className="text-white text-xl">Trần Ngọc Đăng Khôi</span>
+                                        <span className="text-white lg:text-xl">Trần Ngọc Đăng Khôi</span>
                                     </div>
                                     {/* title */}
-                                    <div className="absolute -bottom-full left-5 group-hover:bottom-14 
+                                    <div className="absolute -bottom-full md:left-3 lg:left-5 group-hover:bottom-14 
                                                     transition-all duration-700 z-50">
-                                        <span className="text-white text-xl">
+                                        <span className="text-white lg:text-xl">
                                             ITCSIU21197
                                         </span>
                                     </div>
 
                                 </div>
                                 {/* Quang Huy----------------------------- */}
-                                <div className="group relative top-7 overflow-hidden border-2 
-                                                border-white/50">
+                                <div className="group relative top-7 overflow-hidden ">
                                     {/*overlay */}
                                     <div className="group-hover:bg-black/70 w-full h-full absolute z-40 
                                                     transition-all duration-300">
@@ -100,47 +96,36 @@ export default function Page(){
                                     </Link>
                                     
                                     {/* title */}
-                                    <div className="absolute -bottom-full left-5 group-hover:bottom-24 
+                                    <div className="absolute -bottom-full md:left-1 lg:left-5 group-hover:bottom-24 
                                                     transition-all duration-500 z-50">
-                                        <span className="text-white text-xl">Trần Phương Quang Huy</span>
+                                        <span className="text-white lg:text-xl">
+                                            Trần Phương Quang Huy
+                                        </span>
                                     </div>
                                     {/* title */}
-                                    <div className="absolute -bottom-full left-5 group-hover:bottom-14 
+                                    <div className="absolute -bottom-full md:left-1 lg:left-5 group-hover:bottom-14 
                                                     transition-all duration-700 z-50">
-                                        <span className="text-white text-xl">
+                                        <span className="text-white lg:text-xl">
                                             ITCSIU21071
                                         </span>
                                     </div>
                                 </div>
-                                <div className=" text-black px-20 py-10">
+                                <div className=" text-black md:px-2 lg:px-20 md:py-3 lg:py-10">
                                     <h1 className="py-6 font-serif font-semibold text-3xl">
                                         Introduce
                                     </h1>
-                                    <p className="line-clamp-4 text-xl">
+                                    <p className="line-clamp-7 text-xl">
                                         We studied at Computer Science and Engineering <br />
-                                                    (VNU-HCM International University) which
-                                                    a small passionate group <br/>with mission that help people teamworking,  brainstorming <br />and visualizing idea easily...
+                                        (VNU-HCM International University) which
+                                        a small passionate group <br/>with mission that help people 
+                                        teamworking,  brainstorming <br />and visualizing idea easily...
                                         <br />
                                         
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        
-                       
-                        
                     </section>
-                    {/* <div>
-                        <div className="w-full flex justify-center">
-                        <h1 className="text-7xl font-semibold bg-gradient-to-r from-yellow-500 to-orange-500 text-transparent bg-clip-text w-fit">
-                            About
-                        </h1>
-                        </div>
-
-                        <div className="py-10 text-center text-gray-700 text-xl">
-                            We are a small passionate group with mission that help people teamworking, brainstorming and visualizing idea easily.
-                        </div>
-                    </div> */}
                     <section className="">
                         <div className="py-10">
                             <div className="flex justify-center">
@@ -149,7 +134,8 @@ export default function Page(){
                                     Our Values
                                 </div>
                             </div>
-                            <div className="flex gap-x-10 px-9 justify-center overflow-x-auto font-sans text-xl text-center">
+                            <div className="flex gap-x-10 px-9 justify-center overflow-x-auto font-sans 
+                                            text-xl text-center">
                                 <div className=" border-orange-200 border-8 rounded-lg h-96 w-[350px]
                                                  bg-orange-300 shrink-0">
                                     {/* <img src="/src/practice.png" alt="" /> */}
@@ -225,12 +211,14 @@ export default function Page(){
                                     />
                                 </div>
                                 <div className="justify-center flex flex-col items-center px-3">
-                                    <h1 className="text-5xl font-semibold bg-gradient-to-r from-orange-500 to-rose-500 text-transparent bg-clip-text w-fit">
+                                    <h1 className="md:text-2xl lg:text-5xl font-semibold bg-gradient-to-r 
+                                                from-orange-500 to-rose-500 text-transparent bg-clip-text w-fit
+                                                line-clamp-1">
                                         A word from all of us
                                         </h1>
                                     <span className="h-6 w-10">        
                                     </span>
-                                    <p className="text-center font-serif text-3xl">
+                                    <p className="md:px-3 text-center font-serif md:text-xl lg:text-3xl">
                                         Dream big, stay positive,<br /> work hard, and enjoy the journeys.    
                                     </p>
                                 </div>
@@ -246,8 +234,6 @@ export default function Page(){
                             </div>
                         </div>
                     </section>
-                    
-
                     <section>
                         <div className="prose mx-auto text-center dark:prose-invert py-5 px-20">
                             <p>
@@ -257,23 +243,15 @@ export default function Page(){
                             </p>
 
                             <p>
-                            <a href="https://github.com/koitran14/WhiteBoard-Platform" className="underline">Get in touch</a>
+                            <a  href="https://github.com/koitran14/WhiteBoard-Platform" 
+                                className="underline">Get in touch</a>
                             </p>
                         </div>
                         
                     </section>
                     <section>
                         <footer className="bg-amber-800 w-full h-60 flex flex-row ">
-                            <div className="group flex flex-row items-center gap-x-2 px-20">
-                                {/* <img    alt="logo" 
-                                        loading="lazy"
-                                        width="120" 
-                                        height="120" 
-                                        decoding="async" 
-                                        data-nimg="1" 
-                                        className="group-hover:animate-pulse transition duration-150" 
-                                        style="color:transparent" 
-                                        src="/logo.svg"> */}
+                            <div className="group flex flex-row items-center gap-x-2 md:px-5 lg:px-20">
                                 <img src="/logo.svg" alt="logo" loading="lazy"
                                         width="120" 
                                         height="120" 
@@ -281,11 +259,16 @@ export default function Page(){
                                         data-nimg="1" 
                                         className="group-hover:animate-pulse transition duration-150"
                                          />
-                                <span className="hidden bg-gradient-to-r font-bold text-white md:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
+                                <span className="hidden bg-gradient-to-r font-bold text-white md:inline-block 
+                                                text-transparent bg-clip-text text-2xl">
+                                    Sketcha
+                                </span>
                             </div>
-                            <div className="py-10 px-20">
-                                <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">Help and Advice</div>
-                                <div className="text-white text-secondary">
+                            <div className="py-10 md:px-10 lg:px-20">
+                                <div className="font-semibold font-sans md:text-xl lg:text-2xl text-white -z-50 py-3">
+                                    Help and Advice
+                                </div>
+                                <div className=" text-gray-300 text-secondary">
                                     <ul className="hover:underline">
                                         <a href="/sign-in">Getting started</a>
                                     </ul>
@@ -297,8 +280,10 @@ export default function Page(){
                                 </div>
                             </div>
                             <div className="py-10">
-                                <div className="font-semibold font-sans text-2xl text-white -z-50 py-3">About us</div>
-                                <div className="text-white text-secondary">
+                                <div className="font-semibold font-sans md:text-xl lg:text-2xl text-white -z-50 py-3">
+                                    About us
+                                </div>
+                                <div className="text-gray-300 text-secondary">
 
                                     <ul className="hover:underline">
                                         <a href="about-us">About us</a>
@@ -319,7 +304,8 @@ export default function Page(){
                             
                         </footer>
                         <div className="w-full bg-amber-800">
-                                <p className="w-full py-3 flex items-center justify-center text-center text-sm text-slate-200">
+                                <p className="w-full py-3 flex items-center justify-center 
+                                            text-center text-sm text-slate-200">
                                     @ 2024 UnIpin, Inc. All rights reserved.
                                 </p>
                         </div>
