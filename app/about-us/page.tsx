@@ -27,7 +27,7 @@ export default function Page(){
                         <h1 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">Who</h1>
                         <h2 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">We are</h2>
                         </div>
-                        <div className="mb-6 text-[36px] lg:text-[80px] font-serif font-semibold 
+                        <div className="mb-6 text-[80px] font-serif font-semibold 
                                         uppercase leading-[1] md:px-20 lg:px-96 py-12">
                             <span className=""></span>
                                 <TypeAnimation 
