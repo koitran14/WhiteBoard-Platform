@@ -251,7 +251,16 @@ export default function Page(){
                     </section>
                     <section>
                         <footer className="bg-amber-800 w-full h-60 flex flex-row ">
-                            <div className="group flex flex-row items-center gap-x-2 md:px-5 lg:px-20">
+                            <div className="group flex flex-row items-center gap-x-2 px-20">
+                                {/* <img    alt="logo" 
+                                        loading="lazy"
+                                        width="120" 
+                                        height="120" 
+                                        decoding="async" 
+                                        data-nimg="1" 
+                                        className="group-hover:animate-pulse transition duration-150" 
+                                        style="color:transparent" 
+                                        src="/logo.svg"> */}
                                 <img src="/logo.svg" alt="logo" loading="lazy"
                                         width="120" 
                                         height="120" 

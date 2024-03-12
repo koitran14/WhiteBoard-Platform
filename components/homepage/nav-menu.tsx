@@ -17,20 +17,20 @@ import Image from "next/image"
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    title: "Collaboration",
+    href: "/(features)/collaboration",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
+    title: "Brainstorming",
+    href: "/(features)/brainstorming",
     description:
       "For sighted users to preview content available behind a link.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: "Visualization",
+    href: "/(features)/visualization",
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
