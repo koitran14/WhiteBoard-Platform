@@ -2,6 +2,7 @@ import { FAQ } from "@/components/homepage/faq";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function IntroPage(){
     return (
@@ -13,9 +14,13 @@ export default function IntroPage(){
                 <ChevronRight className="w-6 h-6 text-slate-500" />
                 <h1 className="text-lg text-slate-500 font-medium">Introduction</h1>
             </div>
-            <div className="pt-2 flex flex-col gap-y-1">
+           
+            <div className="py-2 flex flex-col gap-y-1">
                 <h1 className="text-4xl font-semibold">Introduction</h1>
                 <p className="text-slate-500 sm:w-[60%] w-full">Accelerate your design process with Sketcha — build, iterate, and create at a swift pace.</p>
+            </div>
+            <div className="w-full h-80 rounded-xl shadow-md shadow-slate-300 overflow-hidden relative">
+                <Image alt="intro-img" src="/homepage/introduction-img.png" fill={true}  className="object-cover"/>
             </div>
             <div className=" py-3"> 
                 <p className="text-lg leading-loose inline">

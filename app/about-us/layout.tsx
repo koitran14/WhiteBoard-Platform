@@ -8,12 +8,12 @@ const HomePageLayout = ({
     children: React.ReactNode
 }) => {
     return (
-        <div className="w-full h-full relative">
+        <div className="w-full h-full relative flex flex-col">
             <div className="w-full h-fit fixed top-0 left-0 z-50">
                 <Navbar/>
             </div>
             <Section >
-                <div  className="pt-28">
+                <div  className="pt-24">
                     {children}
                 </div> 
             </Section>   
