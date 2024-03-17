@@ -1,4 +1,3 @@
-import Footer from "@/components/homepage/footer";
 import Navbar from "@/components/homepage/navbar";
 import Section from "@/components/homepage/section";
 

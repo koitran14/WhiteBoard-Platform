@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/themeprovider";
 import { Suspense } from "react";
 import { Loading } from "@/components/auth/loading";
+import { ModalProvider } from "@/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
                 enableSystem
                 disableTransitionOnChange
               >
+                <ModalProvider />
                 {children}
               </ThemeProvider>
             </Suspense>

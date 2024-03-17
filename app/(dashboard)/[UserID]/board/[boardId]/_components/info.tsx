@@ -45,7 +45,7 @@ export const Info = () => {
             <TabSeparator />
             <Hint label="Rename" side="bottom" sideOffset={10}>
                 <Button variant="board" className="text-base font-normal px-2"
-                    onClick={() => onOpen(data._id, data.title)}
+                    onClick={() => onOpen("hi", "new")}
                 >
                     {data.title}
                 </Button>

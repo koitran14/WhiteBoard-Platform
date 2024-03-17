@@ -39,6 +39,27 @@ export default function Page() {
             />
             </div>
             <div>
+<<<<<<< HEAD
+            <div className="absolute bg-gray-100 h-96 w-8/12 z-[-1] -right-0"></div>
+            <div className="flex flex-row justify-center font-mono w-full h-full py-10 md:px-16 px-8 gap-x-3 ">
+                <div className="w-full h-full flex-row flex gap-x-2">
+                    <div className="items-start flex flex-col h-full">
+                        <TeamMember name="Trần Ngọc Đăng Khôi" id="ITCSIU21197" imageSrc="/src/KoiKoi22.jpg" />
+                    </div>
+                    <div className=" h-full flex flex-col items-end">
+                        <TeamMember name="Trần Phương Quang Huy" id="KengG1M" imageSrc="/src/QiQi22.jpg" />
+                    </div>
+                </div>
+                <div className="text-black md:px-2 lg:px-20 md:py-3 lg:py-10">
+                <h1 className="py-6 font-serif font-semibold text-3xl">Introduce</h1>
+                <p className="line-clamp-7 text-xl">
+                    We are currently juniors at Computer Science and Engineering <br />
+                    (VNU-HCM International University) which a small passionate group <br />
+                    with a mission to help people collaborate, brainstorm, and visualize ideas easily...
+                    <br />
+                </p>
+=======
+>>>>>>> 69d921f84757073fe024d71f5ae8c07aa4ddd92d
                 <div>
                     <section>
                         
