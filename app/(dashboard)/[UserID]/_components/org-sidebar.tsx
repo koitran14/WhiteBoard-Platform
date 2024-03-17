@@ -13,6 +13,7 @@ const font = Poppins({
     subsets: ["latin"],
     weight: ["600"],
 });
+
 export const OrgSidebar = () => {
     const searchParams = useSearchParams();
     const favorites = searchParams.get("favorites");
@@ -59,7 +60,7 @@ export const OrgSidebar = () => {
             />
             <div className="space-y-1 w-full">
                 <Button 
-                    variant={favorites ? "outline" : "secondary"}
+                    variant={favorites ? "ghost" : "secondary"}
                     asChild
                     size="lg"
                     className="font-normal justify-start px-2 w-full"
@@ -70,7 +71,7 @@ export const OrgSidebar = () => {
                     </Link>
                 </Button>
                 <Button 
-                    variant={favorites ? "secondary" : "outline"}
+                    variant={favorites ? "secondary" : "ghost"}
                     asChild
                     size="lg"
                     className="font-normal justify-start px-2 w-full"
