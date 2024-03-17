@@ -39,7 +39,6 @@ export default function Page() {
             />
             </div>
             <div>
-<<<<<<< HEAD
             <div className="absolute bg-gray-100 h-96 w-8/12 z-[-1] -right-0"></div>
             <div className="flex flex-row justify-center font-mono w-full h-full py-10 md:px-16 px-8 gap-x-3 ">
                 <div className="w-full h-full flex-row flex gap-x-2">
@@ -58,7 +57,6 @@ export default function Page() {
                     with a mission to help people collaborate, brainstorm, and visualize ideas easily...
                     <br />
                 </p>
-=======
                 <div>
                     <section>
                         
