@@ -1,53 +1,8 @@
-// "use client"
-// import qs from "query-string"
-// import { Search } from "lucide-react";
-// import {useDebounceValue} from "usehooks-ts"
-// import { useRouter } from "next/navigation";
-
-// import {
-//     ChangeEvent,
-//     useEffect,
-//     useState,
-// } from "react"
-// import { Input } from "@/components/ui/input";
-
-// export const SearchInput = () => {
-//     const router = useRouter();
-//     const [value, setValue] = useState("");
-//     const debouncedValue = useDebounceValue(value, 500);
-
-//     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-//         setValue(e.target.value);
-//     };
-
-//     useEffect(() => {
-//         const url = qs.stringifyUrl({
-//             url: "/",
-            
-//         })
-//     }, [debouncedValue, router]);
-
-//     return (
-//         <div className="w-full relative">
-//             <Search
-//                 className="absolute top-1/2 left-3 transform -translate-y-1/2 
-//                 text-muted-foreground h-4 w-4"
-//             />
-//             <Input
-//                 className="w-full max-w-[516px] pl-9"
-//                 placeholder="Search sketchas"
-//                 onChange = {handleChange}
-//                 value={value}
-//             />
-//         </div>
-//     );
-// };
-
 "use client"
 import qs from "query-string"
 import { Search } from "lucide-react";
 import {useDebounceValue} from "usehooks-ts"
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
     ChangeEvent,
@@ -55,7 +10,6 @@ import {
     useState,
 } from "react"
 import { Input } from "@/components/ui/input";
-import { formUrlQuery}
 
 export const SearchInput = () => {
     const router = useRouter();
@@ -69,6 +23,9 @@ export const SearchInput = () => {
     useEffect(() => {
         const url = qs.stringifyUrl({
             url: "/",
+            query: {
+                search: debouncedValue
+            }
             
         })
     }, [debouncedValue, router]);
@@ -88,3 +45,4 @@ export const SearchInput = () => {
         </div>
     );
 };
+
