@@ -1,11 +1,4 @@
 "use client"
-<<<<<<< HEAD
-=======
-import qs from "query-string"
-import { Search } from "lucide-react";
-import {useDebounceValue} from "usehooks-ts"
-import { useRouter } from "next/navigation";
->>>>>>> 6e3599592bfc26b9118fb3dadd85f6f14c806452
 
 import qs from "query-string";
 import { Search } from "lucide-react";
@@ -26,7 +19,6 @@ export const SearchInput = () => {
 
     useEffect(() => {
         const url = qs.stringifyUrl({
-<<<<<<< HEAD
             url: pathname,
             query: {
                 search: debouncedValue,
@@ -35,17 +27,7 @@ export const SearchInput = () => {
         
         router.replace(url);
     }, [debouncedValue, pathname, router]);
-    
-=======
-            url: "/",
-            query: {
-                search: debouncedValue
-            }
-            
-        })
-    }, [debouncedValue, router]);
 
->>>>>>> 6e3599592bfc26b9118fb3dadd85f6f14c806452
     return (
         <div className="w-full relative">
         <Search className="absolute top-1/2 left-3 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -58,7 +40,3 @@ export const SearchInput = () => {
         </div>
     );
 };
-<<<<<<< HEAD
-=======
-
->>>>>>> 6e3599592bfc26b9118fb3dadd85f6f14c806452

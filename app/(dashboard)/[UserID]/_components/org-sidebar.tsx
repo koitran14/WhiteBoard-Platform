@@ -9,7 +9,6 @@ import { useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import next from "next";
 const font = Poppins({
     subsets: ["latin"],
     weight: ["600"],
