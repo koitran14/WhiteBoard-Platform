@@ -69,18 +69,18 @@ export const OrgSidebar = () => {
                         Team boards
                     </Link>
                 </Button>
-                <Button 
-                    variant={favorites ? "secondary" : "outline"}
+                <Button
+                    variant={favorites ? "secondary" : "ghost"}
                     asChild
                     size="lg"
                     className="font-normal justify-start px-2 w-full"
                 >
                     <Link href={{
-                        pathname: "/",
-                        query: { favorites: true},
+                        pathname: "/..",
+                        query: { favorites: true }
                     }}>
-                        <Star className="h-4 w-4 mr-2"/>
-                        Favorite Sketcha
+                        <Star className="h-4 w-4 mr-2" />
+                        Favorite boards
                     </Link>
                 </Button>
 

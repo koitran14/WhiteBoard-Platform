@@ -1,21 +1,32 @@
-// "use client"
-// import { UserButton } from "@clerk/nextjs";
-// import {  useParams } from "next/navigation";
 
-// export default function Dashboard(){ {/*dashboard==home */}
-//     const params = useParams();
+"use client";
+import { useOrganization } from "@clerk/nextjs";
+import { EmptyOrg } from "./_components/empty-org";
+import { BoardList } from "./_components/board-list";
 
-//     return (
-//         <div>
-//             <p>Dashboard Page for {params.UserID}</p>
-//             <UserButton afterSignOutUrl="/"/>
-//         </div>
-//     )
-// }
-const DashboardPage=() => {
+interface DashboardPageProps {
+    searchParams: {
+        search?: string;
+        favorites?: string;
+    }
+}
+
+const DashboardPage=({
+    searchParams,
+}: DashboardPageProps) => {
+    const { organization } = useOrganization();
+
     return(
-        <div>
-            Dashboard Root Page
+        <div className="flex-1 h-[calc(100%-80px)] p-6">
+            {JSON.stringify(searchParams)}
+            {!organization ? (
+                <EmptyOrg/>
+            ): (
+                <BoardList
+                    orgId={organization.id}
+                    query={searchParams}
+                />
+            )}
         </div>
     );
 };
