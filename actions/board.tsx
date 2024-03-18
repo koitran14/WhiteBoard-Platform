@@ -10,7 +10,7 @@ export interface Board {
 }
 
 export async function getAllBoards(orgId: string): Promise<Board[]> {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/boards?orgId=${orgId}`);
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/boards/${orgId}`);
     return res.data;
 }
 
