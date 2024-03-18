@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 import { Overlay } from "./overlay";
 import { Footer } from "./footer";
+import { usePathname } from "next/navigation";
 
 interface BoardCardProps {
     id: string;
@@ -31,14 +32,15 @@ export const BoardCard = ({
     orgId,
     isFavorite,
 }: BoardCardProps) => {
+    const pathname = usePathname();
     const { userId } = useAuth();
     const authorLabel = userId === authorId ? "You" : authorName;
-    const createdAtLabel = formatDistanceToNow(createdAt, {
+    const createdAtLabel = formatDistanceToNow(new Date(createdAt), {
         addSuffix: true,
     })
 
     return (
-        <Link href={'/board/${id}'}>
+        <Link href={pathname + `/board/${id}`}>
             <div className="group-aspect-[100/127] border rounded-lg flex
             flex-col justify-between overflow-hidden">
                 <div className="relative flex-1 bg-amber-50">
@@ -46,7 +48,7 @@ export const BoardCard = ({
                         src={imageUrl}
                         alt={title}
                         fill
-                        className="object-fit"
+                        className="object-cover"
                     />
                     <Overlay/>
                 </div>

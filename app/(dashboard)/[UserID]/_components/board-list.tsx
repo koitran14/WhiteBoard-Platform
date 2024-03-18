@@ -27,7 +27,7 @@ export const BoardList = ({
             imageUrl:"/public/logo.svg",
             authorId:"Huy123",
             authorName:"HuyQQ",
-            createdAt: new Date(2014, 1, 11),
+            createdAt: new Date(2024, 11, 11),
             orgId:"Org123",
             isFavorite: true,
         }
