@@ -24,10 +24,20 @@ export const BoardList = ({
         {
             id:"123123123",
             title:"huy",
+            imageUrl:"/public/placeholders/1.svg",
+            authorId:"Huy123",
+            authorName:"HuyQQ",
+            createdAt: 12042003,
+            orgId:"Org123",
+            isFavorite: true,
+        },
+        {
+            id:"123123123",
+            title:"Koi",
             imageUrl:"/public/logo.svg",
             authorId:"Huy123",
             authorName:"HuyQQ",
-            createdAt: new Date(2014, 1, 11),
+            createdAt: 12042003,
             orgId:"Org123",
             isFavorite: true,
         }

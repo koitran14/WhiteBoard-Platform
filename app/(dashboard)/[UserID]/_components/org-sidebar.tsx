@@ -5,7 +5,7 @@ import Image from "next/image";
 import { LayoutDashboard, Star } from "lucide-react";  {/** thu tu import co phai la mot van de??? */}
 import { Poppins } from "next/font/google";
 import { OrganizationSwitcher } from "@clerk/nextjs";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ const font = Poppins({
 });
 
 export const OrgSidebar = () => {
+    const pathname = usePathname();
     const searchParams = useSearchParams();
     const favorites = searchParams.get("favorites");
 
@@ -77,7 +78,7 @@ export const OrgSidebar = () => {
                     className="font-normal justify-start px-2 w-full"
                 >
                     <Link href={{
-                        pathname: "../-",
+                        pathname: pathname,
                         query: { favorites: true }
                     }}>
                         <Star className="h-4 w-4 mr-2" />
