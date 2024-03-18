@@ -10,7 +10,6 @@ import {
 export const EmptyOrg = () => {
     return (
         <div className="h-full flex flex-col items-center justify-center">
-            
             <Image
                 src="/elements.svg"
                 alt="Empty"

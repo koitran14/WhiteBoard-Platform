@@ -30,7 +30,7 @@ export const OrgSidebar = () => {
                         width={60}
                     />
                     <span className={cn(
-                        "font-semibold text-2xl", 
+                        "font-semibold text-2xl text-transparent bg-clip-text from-yellow-500 via-orange-500 to-red-600 bg-gradient-to-r", 
                         font.className,
                     )}>
                         Sketcha
@@ -71,7 +71,7 @@ export const OrgSidebar = () => {
                     </Link>
                 </Button>
                 <Button 
-                    variant={favorites ? "secondary" : "outline"}
+                    variant={favorites ? "secondary" : "ghost"}
                     asChild
                     size="lg"
                     className="font-normal justify-start px-2 w-full"

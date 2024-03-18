@@ -1,7 +1,39 @@
-import { CreateOrganization } from "@clerk/nextjs";
+"use client"
+
+import { useOrganization } from "@clerk/nextjs";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { toast } from "sonner";
+import { createBoard } from "@/actions/board";
+import { useParams } from "next/navigation";
+
 export const EmptyBoards = () => {
+    const { organization } = useOrganization();
+    const [pending, setPending] = useState(false);
+    const params = useParams();
+
+    const onClick = async () => {
+        if (!organization) return;
+        
+        try {
+            setPending(true);
+            const board = {
+                title: "untitled",
+                orgId: organization.id,
+                authorId: params.UserID as string,
+                imageUrl: '/placeholders/1.svg',
+            }
+            
+            const response = await createBoard(board);
+            toast.success("Created successfully.");
+        } catch (error) {
+            toast.error('Fail to create.')
+        } finally {
+            setPending(false);
+        }
+    }
+
     return (
         <div className="h-full flex flex-col items-center justify-center">
             <Image
@@ -18,7 +50,7 @@ export const EmptyBoards = () => {
                 Start by creating a board for your Organization! 
             </p>
             <div className="mt-6">
-                <Button size="lg"> 
+                <Button size="lg" disabled={pending} onClick={onClick}> 
                     Create sketcha!
                 </Button>
             </div>

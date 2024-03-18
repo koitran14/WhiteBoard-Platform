@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/themeprovider";
 import { Suspense } from "react";
 import { Loading } from "@/components/auth/loading";
 import { ModalProvider } from "@/providers/modal-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
                 disableTransitionOnChange
               >
                 <ModalProvider />
+                <Toaster />
                 {children}
               </ThemeProvider>
             </Suspense>
