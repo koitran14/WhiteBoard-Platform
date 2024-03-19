@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
 
 // import api from convex 
-import { useApiMutation } from "@/hooks/use-api-mutation";
+// import { useApiMutation } from "@/hooks/use-api-mutation";
 
 interface NewBoardButtonProps {
     orgId: string;
@@ -15,27 +15,38 @@ export const NewBoardButton = ({
     orgId,
     disabled,
 }: NewBoardButtonProps) => {
-    const {mutate, pending } = [] //TODO: (api) board.create by useMutation()
+    // const {mutate, pending } = [] //TODO: (api) board.create by useMutation()
+
+    const create = () => {
+        const newObject: data = {
+            id: 4,
+            title: "Untitled",
+            imageUrl: "/placeholders/1.svg",
+            authorId:"Huynewadd",
+            authorName:"HuyQQaddnew",
+            createdAt: new Date(2024, 11, 11),
+            orgId:"OrgAddNew",
+            isFavorite: true,
+        };
+    }
+    
     const onClick = () => {
-        mutate({
-            orgId,
-            title: "Untitled"
-        })
-            .then((id) => {
-                toast.success("Board created");
-                //TODO: Redirect to /board/{id}
-            })
-            .catch(() => toast.error("Failed to create board"));
+        create()
+            // .then((id) => {
+            //     toast.success("Board created");
+            //     //TODO: Redirect to /board/{id}
+            // })
+            // .catch(() => toast.error("Failed to create board"));
 
     }
 
     return (
         <button
-            disabled={pending || disabled}
-            onClick={()=>{}}  
+            disabled={disabled}
+            onClick={onClick}  
             className={cn(
                 "col-span-1 aspect-[100/127] bg-blue-600 rounded-lg hover:bg-blue-800 flex flex-col items-center justify-center py-6",
-                (pending || disabled) && "opacity-75 hover:bg-blue-600 cursor-not-allowed "
+                (disabled) && "opacity-75 hover:bg-blue-600 cursor-not-allowed "
             )}
         >
             <div />
