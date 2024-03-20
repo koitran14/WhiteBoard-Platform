@@ -1,3 +1,5 @@
+"use client"
+
 import { Info } from "./info"
 import { Participants } from "./participants"
 import { ToolBar } from "./toolbar"
