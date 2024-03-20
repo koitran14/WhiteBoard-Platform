@@ -2,7 +2,6 @@
 
 import { RoomProvider } from "@/liveblocks.config";
 import { ClientSideSuspense } from "@liveblocks/react";
-import { Loading } from "../auth/loading";
 
 interface RoomProps {
     children: React.ReactNode,

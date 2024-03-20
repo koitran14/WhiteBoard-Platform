@@ -17,6 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { useRenameModal } from "@/store/use-rename-modal";
 import { useState } from "react";
+import { deleteBoard } from "@/actions/board";
+import { useRouter } from "next/navigation";
 
 interface ActionsProps {
   children: React.ReactNode;
@@ -35,6 +37,7 @@ export const Actions = ({
 }: ActionsProps) => {
     const { onOpen } = useRenameModal();
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     const onCopyLink = () => {
         navigator.clipboard.writeText(
@@ -44,10 +47,12 @@ export const Actions = ({
         .catch(() => toast.error("Failed to copy link"))
     };
 
-    const onDelete = () => {
+    const onDelete = async () => {
         try {
             setLoading(true);
-            toast.success("Delete successfully.")
+            await deleteBoard(id);
+            toast.success("Delete successfully.");
+            router.back();
         } catch (error) {
             toast.error("Failed to delete.")
         } finally {
@@ -71,7 +76,7 @@ export const Actions = ({
           className="p-3 cursor-pointer"
         >
           <Link2 className="h-4 w-4 mr-2" />
-          Copy board link
+          Copy link
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => onOpen(id, title)}

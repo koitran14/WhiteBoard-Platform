@@ -9,6 +9,9 @@ import { Hint } from "@/components/hint"
 import { useRenameModal } from "@/store/use-rename-modal";
 import { Actions } from "@/components/action"
 import { Menu } from "lucide-react"
+import { useParams, useRouter } from "next/navigation"
+import { Board, getBoardById } from "@/actions/board"
+import { useEffect, useState } from "react"
 
 const font = Poppins({
     subsets: ["latin"],
@@ -21,12 +24,28 @@ const TabSeparator = () => {
     )
 }
 
-export const Info = () => {
+export const Info = ({
+    boardId
+}: {
+    boardId: string
+}) => {
     const { onOpen } = useRenameModal();
+    const [board, setBoard] = useState<Board>();
+    const router = useRouter();
 
-    const data = { _id:"abc", title: "test"};
+    useEffect(() => {
+        const request = async() => {
+            const response = await getBoardById(boardId);
+            if (response) {
+                setBoard(response);
+            } else {
+                router.back();
+            }
+        }
+        request();
+    },[board, boardId, router])
 
-    if (!data) return <InfoSkeleton />
+    if (!board) return <InfoSkeleton />
 
     return (
         <div className="absolute top-2 left-2 bg-white rounded-md px-1.5 h-12 flex items-center shadow-md">
@@ -45,13 +64,13 @@ export const Info = () => {
             <TabSeparator />
             <Hint label="Rename" side="bottom" sideOffset={10}>
                 <Button variant="board" className="text-base font-normal px-2"
-                    onClick={() => onOpen("hi", "new")}
+                    onClick={() => onOpen(board._id, board.title)}
                 >
-                    {data.title}
+                    {board.title}
                 </Button>
             </Hint>
             <TabSeparator />
-            <Actions id={data._id} title={data.title} side="bottom" sideOffset={10}>
+            <Actions id={board._id} title={board.title} side="bottom" sideOffset={10}>
                 <div>
                     <Hint label="Main menu" side="bottom" sideOffset={10}>
                         <Button size="icon" variant="board">

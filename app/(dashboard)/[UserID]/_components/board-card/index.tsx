@@ -1,9 +1,8 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
-import { MoreHorizontal } from "lucide-react";
+import { clerkClient, useAuth } from "@clerk/nextjs";
+import { MoreHorizontal, Star, UsersRoundIcon } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
 // import { Action } from "@/components/actions";
@@ -11,13 +10,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 import { Overlay } from "./overlay";
 import { Footer } from "./footer";
-import { usePathname } from "next/navigation";
 import { Actions } from "@/components/action";
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { setFavorite } from "@/actions/board";
+import { cn } from "@/lib/utils";
 
 interface BoardCardProps {
     id: string;
     title: string;
-    authorName: string;
     authorId: string;
     createdAt: Date;
     imageUrl: string;
@@ -29,23 +30,54 @@ export const BoardCard = ({
     id,
     title,
     authorId,
-    authorName,
     createdAt,
     imageUrl,
     orgId,
     isFavorite,
 }: BoardCardProps) => {
-    const pathname = usePathname();
-    const { userId } = useAuth();
-    const authorLabel = userId === authorId ? "You" : authorName;
+    const router = useRouter();
+    const params = useParams();
+    const [authorLabel, setAuthorLabel] = useState(params.UserID === authorId ? "You" : "Another");
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const getFirstName = async(userID: string) => {
+            const user = await clerkClient.users?.getUser(userID);
+            setAuthorLabel(userID === authorId ? "You" : (user.firstName|| ""))
+        }
+        getFirstName(params.UserID as string);
+    });
+    
     const createdAtLabel = formatDistanceToNow(new Date(createdAt), {
         addSuffix: true,
     })
 
+    const toggleFavorite = async() => {
+       try {
+            setLoading(true);
+            await setFavorite(id, !isFavorite);
+            router.refresh();
+       } catch (error) {
+            console.log(error);
+       } finally {
+            setLoading(false);
+       }
+    }
+
+    const onClick = () => {
+        try {
+            setLoading(true);
+            router.push(`boards/${id}`);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
-        <Link href={pathname + `/board/${id}`}>
-            <div className="group aspect-[100/127] border rounded-lg flex
-            flex-col justify-between overflow-hidden">
+        <div className="group aspect-[100/127] border rounded-lg flex
+            flex-col justify-between overflow-hidden" onClick={onClick}>
                 <div className="relative flex-1 bg-amber-50">
                     <Image 
                         src={imageUrl}
@@ -72,12 +104,10 @@ export const BoardCard = ({
                     title={title}
                     authorLabel={authorLabel}
                     createdAtLabel={createdAtLabel}
-                    onClick={() => {}}
-                    disabled={false}
+                    onClick={toggleFavorite}
+                    disabled={loading}
                 />
-            </div>
-        </Link>
-        
+            </div>        
     );
 };
 

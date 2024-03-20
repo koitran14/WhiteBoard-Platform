@@ -3,9 +3,8 @@
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
-
-// import api from convex 
-// import { useApiMutation } from "@/hooks/use-api-mutation";
+import { createBoard, getAllBoards } from "@/actions/board";
+import { useParams } from "next/navigation";
 
 interface NewBoardButtonProps {
     orgId: string;
@@ -15,29 +14,15 @@ export const NewBoardButton = ({
     orgId,
     disabled,
 }: NewBoardButtonProps) => {
-    // const {mutate, pending } = [] //TODO: (api) board.create by useMutation()
+    const params = useParams();
 
-    const create = () => {
-        const newObject: data = {
-            id: 4,
-            title: "Untitled",
-            imageUrl: "/placeholders/1.svg",
-            authorId:"Huynewadd",
-            authorName:"HuyQQaddnew",
-            createdAt: new Date(2024, 11, 11),
-            orgId:"OrgAddNew",
-            isFavorite: true,
-        };
-    }
-    
-    const onClick = () => {
-        create()
-            // .then((id) => {
-            //     toast.success("Board created");
-            //     //TODO: Redirect to /board/{id}
-            // })
-            // .catch(() => toast.error("Failed to create board"));
-
+    const onClick = async () => {
+      try {
+        const response = await createBoard(params.UserID as string, orgId);
+        toast.success('Created successfully.')
+      } catch (error) {
+        toast.error("Fail to create.");
+      } 
     }
 
     return (
@@ -51,10 +36,9 @@ export const NewBoardButton = ({
         >
             <div />
             <Plus
-                className="h-12 ư-12 text-white stroke-1"
+                className="h-12 ư-12 text-white stroke-2"
             /> 
-            <p className="text-sm text-white font-light">New board</p>
-            
+            <p className="text-sm text-white font-medium">New board</p>
         </button>
     );
 };

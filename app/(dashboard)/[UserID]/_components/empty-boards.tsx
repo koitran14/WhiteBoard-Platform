@@ -18,14 +18,7 @@ export const EmptyBoards = () => {
         
         try {
             setPending(true);
-            const board = {
-                title: "untitled",
-                orgId: organization.id,
-                authorId: params.UserID as string,
-                imageUrl: '/placeholders/1.svg',
-            }
-            
-            const response = await createBoard(board);
+            const response = await createBoard(params.UserID as string,organization.id);
             toast.success("Created successfully.");
         } catch (error) {
             toast.error('Fail to create.')

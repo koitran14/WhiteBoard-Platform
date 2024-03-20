@@ -33,7 +33,7 @@ export const Footer = ({
                 disabled={disabled}
                 onClick={onClick}
                 className={cn(
-                    "opacity-0 group-hover:opacity-100 transition-opacity absolutetop-3 right-3 text-muted-foreground hover:text-blue-600", disabled && "cursor-not-allowed opacity-75"
+                    "opacity-0 group-hover:opacity-100 transition-opacity absolute top-3 right-3 text-muted-foreground hover:text-blue-600 z-50", disabled && "cursor-not-allowed opacity-75"
                 )}
             >
                 <Star
