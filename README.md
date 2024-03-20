@@ -1,4 +1,4 @@
-﻿# Whiteboard-Server
+﻿# Whiteboard-Platform
 
 1. Create `.env` file
 
