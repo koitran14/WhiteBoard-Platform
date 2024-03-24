@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react";
-//import useQuery and api from convex here
 
 import { BoardCard } from "./board-card";
 import { EmptyBoards } from "./empty-boards";
@@ -9,6 +8,8 @@ import { EmptyFavorites } from "./empty-favorites";
 import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
+import { checkedIfFavoriteorNot } from "@/actions/favorite";
+import { useParams } from "next/navigation";
 
 interface BoardListProps{
     orgId: string;
@@ -23,6 +24,7 @@ export const BoardList = ({
     query,
 }: BoardListProps) => {
     const [data, setData] = useState<Board[]>();
+    const params = useParams();
 
     useEffect(() => {
         const response = async () => {
@@ -31,6 +33,11 @@ export const BoardList = ({
         }
         response();
     }, [orgId, data]);
+
+    const checked = (boardId: string) => {
+        return checkedIfFavoriteorNot(params.UserID as string, boardId);
+    };
+    
 
 
     if(data===undefined) {
@@ -76,7 +83,7 @@ export const BoardList = ({
                 <NewBoardButton
                     orgId={orgId}
                 />
-                {data?.map((board) => (
+                {data?.map(async (board) => (
                     <BoardCard
                         key={board._id}
                         id={board._id}
@@ -85,7 +92,7 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
-                        isFavorite={board.isFavorite ? board.isFavorite : false }
+                        isFavorite={await checked(board._id)}
                     />
                 ))} 
             </div>

@@ -1,13 +1,14 @@
 import { Star } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { setFavorite } from "@/actions/favorite";
 
 interface FooterProps {
     title: string;
     authorLabel: string;
     createdAtLabel: string;
     isFavorite: boolean;
-    onClick: () => void;
+    onClick: () => void;//TODO: When onclick do the toggleFavorite 
     disabled: boolean;
 };
 
@@ -19,6 +20,7 @@ export const Footer = ({
     onClick,
     disabled,
 }: FooterProps )=> {
+    
     return (
         <div className="relative bg-white p-3">
             <p className="text-[13px] truncate max-w-[calc(100%-20px)]">

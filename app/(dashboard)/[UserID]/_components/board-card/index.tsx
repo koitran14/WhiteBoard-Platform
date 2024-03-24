@@ -13,8 +13,9 @@ import { Footer } from "./footer";
 import { Actions } from "@/components/action";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { setFavorite } from "@/actions/board";
+import { setFavorite } from "@/actions/favorite";
 import { cn } from "@/lib/utils";
+import { checkedIfFavoriteorNot } from "@/actions/favorite";
 
 interface BoardCardProps {
     id: string;
@@ -51,19 +52,31 @@ export const BoardCard = ({
     const createdAtLabel = formatDistanceToNow(new Date(createdAt), {
         addSuffix: true,
     })
+    const paramss = useParams();
 
-    const toggleFavorite = async() => {
-       try {
-            setLoading(true);
-            await setFavorite(id, !isFavorite);
-            router.refresh();
-       } catch (error) {
-            console.log(error);
-       } finally {
-            setLoading(false);
-       }
+
+    // const 
+// function that allow to toggleFavorite
+
+    const actionFavorite = (boardId: string)=> {
+        return setFavorite(paramss.UserID as string, boardId);
     }
 
+    const toggleFavorite = async (boardId: string) => {
+        try {
+            setLoading(true);
+            await actionFavorite(boardId);
+            
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+
+
+// this onClick below that use when click on boardcard and get into it
     const onClick = () => {
         try {
             setLoading(true);
@@ -104,7 +117,7 @@ export const BoardCard = ({
                     title={title}
                     authorLabel={authorLabel}
                     createdAtLabel={createdAtLabel}
-                    onClick={toggleFavorite}
+                    onClick={() => toggleFavorite(id)}
                     disabled={loading}
                 />
             </div>        
