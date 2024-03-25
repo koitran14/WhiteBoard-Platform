@@ -9,7 +9,7 @@ const liveblocks = new Liveblocks({
 export async function POST(request: Request) {
     const authorization = auth();
     const user = await currentUser();
-
+    
     if (!authorization || !user) {
         return new Response("Unauthorized", { status: 403 })
     }

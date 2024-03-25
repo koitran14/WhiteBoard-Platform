@@ -7,7 +7,7 @@ export interface Board {
     authorId: string,
     imageUrl: string,
     createdAt?: Date,
-    isFavorite?: boolean,
+    // isFavorite?: boolean,
 }
 
 export async function getAllBoards(orgId: string): Promise<Board[]> {
