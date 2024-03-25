@@ -43,7 +43,7 @@ export const BoardCard = ({
     useEffect(() => {
         const getFirstName = async(userID: string) => {
             const user = await clerkClient.users?.getUser(userID);
-            setAuthorLabel(userID === authorId ? "You" : (user.firstName|| ""))
+            setAuthorLabel(userID === authorId ? "You" : (user?.firstName|| "Teammate"))
         }
         getFirstName(params.UserID as string);
     });
