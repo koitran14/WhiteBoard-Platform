@@ -44,7 +44,7 @@ export const BoardCard = ({
     useEffect(() => {
         const getFirstName = async(userID: string) => {
             const user = await clerkClient.users?.getUser(userID);
-            setAuthorLabel(userID === authorId ? "You" : (user.firstName|| ""));
+            setAuthorLabel(userID === authorId ? "You" : (user?.firstName|| "Teammate"))
         }
         getFirstName(params.UserID as string);
     });
@@ -64,34 +64,28 @@ export const BoardCard = ({
     //         setLoading(false);
     //    }
     // }
+    const paramss = useParams();
+
 
     // const 
 // function that allow to toggleFavorite
 
-    // const toggleFavorite = async (boardId: string) => {
-    //     try {
-    //         setLoading(true);
-    //         await actionFavorite(boardId);
-            
-    //     } catch (error) {
-    //         console.log(error);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // }
+    const actionFavorite = (boardId: string)=> {
+        return setFavorite(paramss.UserID as string, boardId);
+    }
 
-    const clickFavorite = async (boardId: string) => {
+    const toggleFavorite = async (boardId: string) => {
         try {
             setLoading(true);
-            await setFavorite(params.userId as string, boardId, !isFavorite);
-            router.refresh();
-        } catch (error){
+            await actionFavorite(boardId);
+            
+        } catch (error) {
             console.log(error);
-        }finally {
+        } finally {
             setLoading(false);
         }
     }
-    
+
 
 
 // this onClick below that use when click on boardcard and get into it

@@ -37,7 +37,7 @@ const Navbar = () => {
                         height={120}
                         className="group-hover:animate-pulse transition duration-150"
                     />
-                    <span className="hidden bg-gradient-to-r font-bold from-yellow-500 via-orange-500 to-red-600 md:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
+                    <span className="hidden bg-gradient-to-r jus font-bold from-yellow-500 via-orange-500 to-red-600 md:inline-block text-transparent bg-clip-text text-2xl">Sketcha</span>
                 </div>
                 <div className="w-full md:flex hidden items-center justify-center">
                     <NavMenu/>

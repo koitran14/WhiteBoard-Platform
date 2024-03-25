@@ -7,11 +7,12 @@ export interface Board {
     authorId: string,
     imageUrl: string,
     createdAt?: Date,
-    // isFavorite?: boolean,
+    isFavorite?: boolean,
 }
 
 export async function getAllBoards(orgId: string): Promise<Board[]> {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/boards/${orgId}`);
+    console.log(res);
     return res.data ? res.data : undefined;
 }
 
