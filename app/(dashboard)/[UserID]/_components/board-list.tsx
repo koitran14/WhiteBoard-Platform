@@ -34,8 +34,8 @@ export const BoardList = ({
         response();
     }, [orgId, data]);
 
-    const checked = (boardId: string) => {
-        return checkedIfFavoriteorNot(params.UserID as string, boardId);
+    const checked = async (boardId: string) => {
+        return await checkedIfFavoriteorNot(params.UserID as string, boardId);
     };
     
 

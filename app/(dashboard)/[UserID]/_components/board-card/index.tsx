@@ -44,7 +44,7 @@ export const BoardCard = ({
     useEffect(() => {
         const getFirstName = async(userID: string) => {
             const user = await clerkClient.users?.getUser(userID);
-            setAuthorLabel(userID === authorId ? "You" : (user.firstName|| ""))
+            setAuthorLabel(userID === authorId ? "You" : (user.firstName|| ""));
         }
         getFirstName(params.UserID as string);
     });
@@ -52,6 +52,18 @@ export const BoardCard = ({
     const createdAtLabel = formatDistanceToNow(new Date(createdAt), {
         addSuffix: true,
     })
+// toggleFavorite
+    // const toggleFavorite = async() => {
+    //    try {
+    //         setLoading(true);
+    //         await setFavorite(id, !isFavorite);
+    //         router.refresh();
+    //    } catch (error) {
+    //         console.log(error);
+    //    } finally {
+    //         setLoading(false);
+    //    }
+    // }
     const paramss = useParams();
 
 

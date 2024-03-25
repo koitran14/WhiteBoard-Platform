@@ -7,7 +7,7 @@ export interface Board {
     authorId: string,
     imageUrl: string,
     createdAt?: Date,
-    isFavorite?: boolean,
+    // isFavorite?: boolean,
 }
 
 export async function getAllBoards(orgId: string): Promise<Board[]> {
@@ -32,11 +32,11 @@ export async function createBoard(userId: string, orgId: string) {
     return response;
 }
 
-// export async function setFavorite(id: string, isFavorite: boolean) {
-//     return await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/boards/favorite/${id}`, {
-//         isFavorite : isFavorite
-//     });
-// }
+export async function setFavorite(id: string, isFavorite: boolean) {
+    return await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/boards/favorite/${id}`, {
+        isFavorite : isFavorite
+    });
+}
 
 export async function renameBoard(id: string, title: string) {
     return await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/boards/title/${id}`, {
