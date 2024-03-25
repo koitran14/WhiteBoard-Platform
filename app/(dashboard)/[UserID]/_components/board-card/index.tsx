@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { setFavorite } from "@/actions/favorite";
 import { cn } from "@/lib/utils";
-import { checkedIfFavoriteorNot } from "@/actions/favorite";
+// import { checkedIfFavoriteorNot } from "@/actions/favorite";
 
 interface BoardCardProps {
     id: string;
@@ -24,7 +24,7 @@ interface BoardCardProps {
     createdAt: Date;
     imageUrl: string;
     orgId: string;
-    isFavorite: boolean;
+    // isFavorite: boolean;
 }
 
 export const BoardCard = ({
@@ -34,7 +34,7 @@ export const BoardCard = ({
     createdAt,
     imageUrl,
     orgId,
-    isFavorite,
+    // isFavorite,
 }: BoardCardProps) => {
     const router = useRouter();
     const params = useParams();
@@ -64,28 +64,34 @@ export const BoardCard = ({
     //         setLoading(false);
     //    }
     // }
-    const paramss = useParams();
-
 
     // const 
 // function that allow to toggleFavorite
 
-    const actionFavorite = (boardId: string)=> {
-        return setFavorite(paramss.UserID as string, boardId);
-    }
+    // const toggleFavorite = async (boardId: string) => {
+    //     try {
+    //         setLoading(true);
+    //         await actionFavorite(boardId);
+            
+    //     } catch (error) {
+    //         console.log(error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // }
 
-    const toggleFavorite = async (boardId: string) => {
+    const clickFavorite = async (boardId: string) => {
         try {
             setLoading(true);
-            await actionFavorite(boardId);
-            
-        } catch (error) {
+            await setFavorite(params.userId as string, boardId, !isFavorite);
+            router.refresh();
+        } catch (error){
             console.log(error);
-        } finally {
+        }finally {
             setLoading(false);
         }
     }
-
+    
 
 
 // this onClick below that use when click on boardcard and get into it
@@ -129,7 +135,7 @@ export const BoardCard = ({
                     title={title}
                     authorLabel={authorLabel}
                     createdAtLabel={createdAtLabel}
-                    onClick={() => toggleFavorite(id)}
+                    onClick={() => clickFavorite(id)}
                     disabled={loading}
                 />
             </div>        

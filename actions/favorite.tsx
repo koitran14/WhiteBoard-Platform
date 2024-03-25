@@ -3,30 +3,28 @@ import axios from "axios";
 export interface Favorite {
     userId: string,
     boardId: string,
+    isFavorite: boolean,
 }
 
-export async function removeFavorite(userId: string, boardId: string){
-    return await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/favorites/remove/${userId}/${boardId}`)
-}
+// export async function removeFavorite(userId: string, boardId: string){
+//     return await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/favorites/remove/${userId}/${boardId}`)
+// }
 
-export async function checkedIfFavoriteorNot(userId: string, boardId: string): Promise<boolean> {
-    try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/favorites/check/${userId}/${boardId}`);
-        return res.data.exists; 
-    } catch (error) {
-        console.error("Error checking if favorite:", error);
-        return false; 
-    }
-}
+// export async function checkedIfFavoriteorNot(userId: string, boardId: string): Promise<boolean> {
+//     try {
+//         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/favorites/check/${userId}/${boardId}`);
+//         return res.data.exists; 
+//     } catch (error) {
+//         console.error("Error checking if favorite:", error);
+//         return false; 
+//     }
+// }
 
-export async function setFavorite(userId: string, boardId: string): Promise<Favorite> {
-    try {
-        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/favorites`, { userId, boardId });
-        return { userId, boardId }; 
-    } catch (error) {
-        console.error("Error setting favorite:", error);
-        throw error; 
-    }
+export async function setFavorite(userId: string, boardId: string, isFavorite: boolean){
+        return await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/favorites/${userId}/${boardId}`,{ 
+            isFavorite : isFavorite
+        });
+        
 }
 
 

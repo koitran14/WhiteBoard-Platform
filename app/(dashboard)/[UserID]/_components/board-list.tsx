@@ -8,7 +8,7 @@ import { EmptyFavorites } from "./empty-favorites";
 import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
-import { checkedIfFavoriteorNot } from "@/actions/favorite";
+// import { checkedIfFavoriteorNot } from "@/actions/favorite";
 import { useParams } from "next/navigation";
 
 interface BoardListProps{
@@ -34,9 +34,9 @@ export const BoardList = ({
         response();
     }, [orgId, data]);
 
-    const checked = async (boardId: string) => {
-        return await checkedIfFavoriteorNot(params.UserID as string, boardId);
-    };
+    // const checked = async (boardId: string) => {
+    //     return await checkedIfFavoriteorNot(params.UserID as string, boardId);
+    // };
     
 
 
@@ -92,7 +92,7 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
-                        isFavorite={await checked(board._id)}
+                        // isFavorite={isFavorite}
                     />
                 ))} 
             </div>
