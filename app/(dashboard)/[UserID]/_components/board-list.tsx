@@ -27,31 +27,12 @@ export const BoardList = ({
     const params = useParams();
 
     useEffect(() => {
-        const recheck = async (boards: Board[]) => {
-            const modifiedData = await Promise.all(boards.map(async board => ({
-                ...board,
-                isFavorite: (await checkedIfFavoriteorNot(params.UserID as string, board._id)),
-            })));
-            console.log(modifiedData)
-            return modifiedData;
-        }
-
-        const response = async () => {
-            let boards = await getAllBoards(orgId);
-            const recheckedData = await recheck(boards);
-            setData(recheckedData);
-        }
-
-<<<<<<< HEAD
-    // const checked = async (boardId: string) => {
-    //     return await checkedIfFavoriteorNot(params.UserID as string, boardId);
-    // };
-    
-=======
-        response();
-        }, [orgId, params.UserID]);
->>>>>>> 545acffb82184ec95455af22a5e59c1cca8699a1
-
+       const fetch = async(userId: string, orgId: string) => {
+            const getBoards = await getAllBoards(userId, orgId);
+            setData(getBoards);
+       }
+       fetch(params.UserID as string, orgId);
+    },[params.UserID, orgId])
 
     if(data===undefined) {
         return (
@@ -105,11 +86,7 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
-<<<<<<< HEAD
-                        // isFavorite={isFavorite}
-=======
-                        isFavorite={board.isFavorite !== undefined ? board.isFavorite : false}
->>>>>>> 545acffb82184ec95455af22a5e59c1cca8699a1
+                        isFavorite={board.isFavorite || false}
                     />
                 ))} 
             </div>

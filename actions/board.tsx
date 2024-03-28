@@ -10,9 +10,8 @@ export interface Board {
     isFavorite?: boolean,
 }
 
-export async function getAllBoards(orgId: string): Promise<Board[]> {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/boards/${orgId}`);
-    console.log(res);
+export async function getAllBoards(userId: string, orgId: string): Promise<Board[]> {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/boards/${userId}/${orgId}`);
     return res.data ? res.data : undefined;
 }
 
@@ -23,7 +22,7 @@ export async function getBoardById(boardId: string): Promise<Board> {
 }
 
 export async function createBoard(userId: string, orgId: string) {
-    const boards = await getAllBoards(orgId);
+    const boards = await getAllBoards(userId, orgId);
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/boards`, {
         title: "Untitle-" + boards.length,
         orgId: orgId,

@@ -24,7 +24,7 @@ interface BoardCardProps {
     createdAt: Date;
     imageUrl: string;
     orgId: string;
-    // isFavorite: boolean;
+    isFavorite: boolean;
 }
 
 export const BoardCard = ({
@@ -34,7 +34,7 @@ export const BoardCard = ({
     createdAt,
     imageUrl,
     orgId,
-    // isFavorite,
+    isFavorite,
 }: BoardCardProps) => {
     const router = useRouter();
     const params = useParams();
@@ -52,33 +52,11 @@ export const BoardCard = ({
     const createdAtLabel = formatDistanceToNow(new Date(createdAt), {
         addSuffix: true,
     })
-// toggleFavorite
-    // const toggleFavorite = async() => {
-    //    try {
-    //         setLoading(true);
-    //         await setFavorite(id, !isFavorite);
-    //         router.refresh();
-    //    } catch (error) {
-    //         console.log(error);
-    //    } finally {
-    //         setLoading(false);
-    //    }
-    // }
-    const paramss = useParams();
-
-
-    // const 
-// function that allow to toggleFavorite
-
-    const actionFavorite = (boardId: string)=> {
-        return setFavorite(paramss.UserID as string, boardId);
-    }
 
     const toggleFavorite = async (boardId: string) => {
         try {
             setLoading(true);
-            await actionFavorite(boardId);
-            
+            await setFavorite(params.UserID as string, boardId);            
         } catch (error) {
             console.log(error);
         } finally {
@@ -129,7 +107,7 @@ export const BoardCard = ({
                     title={title}
                     authorLabel={authorLabel}
                     createdAtLabel={createdAtLabel}
-                    onClick={() => clickFavorite(id)}
+                    onClick={() => toggleFavorite(id)}
                     disabled={loading}
                 />
             </div>        
