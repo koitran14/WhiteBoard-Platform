@@ -80,7 +80,7 @@ export const Actions = ({
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => onOpen(id, title)}
-          className="p-3 cursor-pointer"
+          className="p-3 cursor-pointer flex-1"
         >
           <Pencil className="h-4 w-4 mr-2" />
           Rename

@@ -8,7 +8,7 @@ import { EmptyFavorites } from "./empty-favorites";
 import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
-import { checkedIfFavoriteorNot } from "@/actions/favorite";
+// import { checkedIfFavoriteorNot } from "@/actions/favorite";
 import { useParams } from "next/navigation";
 
 interface BoardListProps{
@@ -27,6 +27,7 @@ export const BoardList = ({
     const params = useParams();
 
     useEffect(() => {
+<<<<<<< HEAD
         const recheck = async (boards: Board[]) => {
             const modifiedData = await Promise.all(boards.map(async board => ({
                 ...board,
@@ -45,6 +46,14 @@ export const BoardList = ({
         response();
         }, [orgId, params.UserID]);
 
+=======
+       const fetch = async(userId: string, orgId: string) => {
+            const getBoards = await getAllBoards(userId, orgId);
+            setData(getBoards);
+       }
+       fetch(params.UserID as string, orgId);
+    },[params.UserID, orgId])
+>>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
 
     if(data===undefined) {
         return (
@@ -98,7 +107,11 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
+<<<<<<< HEAD
                         isFavorite={board.isFavorite !== undefined ? board.isFavorite : false}
+=======
+                        isFavorite={board.isFavorite || false}
+>>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
                     />
                 ))} 
             </div>

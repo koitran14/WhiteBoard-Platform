@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { setFavorite } from "@/actions/favorite";
 import { cn } from "@/lib/utils";
-import { checkedIfFavoriteorNot } from "@/actions/favorite";
+// import { checkedIfFavoriteorNot } from "@/actions/favorite";
 
 interface BoardCardProps {
     id: string;
@@ -53,9 +53,20 @@ export const BoardCard = ({
         addSuffix: true,
     })
 
+<<<<<<< HEAD
     const toggleFavorite = (boardId: string) => {
         const request = async() => {
             return await setFavorite(params.UserID as string, boardId );
+=======
+    const toggleFavorite = async (boardId: string) => {
+        try {
+            setLoading(true);
+            await setFavorite(params.UserID as string, boardId);            
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+>>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
         }
         console.log(request);
         return request;
