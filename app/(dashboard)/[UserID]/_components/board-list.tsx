@@ -27,17 +27,23 @@ export const BoardList = ({
     const params = useParams();
 
     useEffect(() => {
+        const recheck = async (boards: Board[]) => {
+            const modifiedData = await Promise.all(boards.map(async board => ({
+                ...board,
+                isFavorite: (await checkedIfFavoriteorNot(params.UserID as string, board._id)),
+            })));
+            console.log(modifiedData)
+            return modifiedData;
+        }
+
         const response = async () => {
             let boards = await getAllBoards(orgId);
-            setData(boards);
+            const recheckedData = await recheck(boards);
+            setData(recheckedData);
         }
-        response();
-    }, [orgId, data]);
 
-    const checked = async (boardId: string) => {
-        return await checkedIfFavoriteorNot(params.UserID as string, boardId);
-    };
-    
+        response();
+        }, [orgId, params.UserID]);
 
 
     if(data===undefined) {
@@ -92,7 +98,7 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
-                        isFavorite={await checked(board._id)}
+                        isFavorite={board.isFavorite !== undefined ? board.isFavorite : false}
                     />
                 ))} 
             </div>
