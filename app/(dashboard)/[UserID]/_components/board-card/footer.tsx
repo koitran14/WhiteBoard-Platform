@@ -1,7 +1,6 @@
 import { Star } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { setFavorite } from "@/actions/favorite";
 
 interface FooterProps {
     title: string;
@@ -33,14 +32,17 @@ export const Footer = ({
             </p>
             <button
                 disabled={disabled}
-                onClick={onClick}
+                onClick={(e) => {
+                    e.stopPropagation(); // Prevent event bubbling to the parent element
+                    onClick(); // Call the toggleFavorite function instead of navigation
+                }}
                 className={cn(
                     "opacity-0 group-hover:opacity-100 transition-opacity absolute top-3 right-3 text-muted-foreground hover:text-blue-600 z-50", disabled && "cursor-not-allowed opacity-75"
                 )}
             >
                 <Star
                     className={cn(
-                        "h-4 w-4",
+                        "h-4 w-4 absolute right-1 top-0.5",
                         isFavorite &&"fill-blue-600 text-blue-600"
                     )}
                 />

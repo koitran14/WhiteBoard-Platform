@@ -52,7 +52,7 @@ export const Actions = ({
             setLoading(true);
             await deleteBoard(id);
             toast.success("Delete successfully.");
-            router.back();
+            router.push('/');
         } catch (error) {
             toast.error("Failed to delete.")
         } finally {
