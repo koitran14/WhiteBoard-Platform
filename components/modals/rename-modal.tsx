@@ -7,13 +7,12 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { renameBoard } from "@/actions/board";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export const RenameModal = () => {
     const { isOpen, onClose, initialValues } = useRenameModal();
     const [title, setTitle] = useState(initialValues.title);
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
 
     useEffect(() => {
         setTitle(initialValues.title);
