@@ -12,7 +12,7 @@ import { Overlay } from "./overlay";
 import { Footer } from "./footer";
 import { Actions } from "@/components/action";
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { setFavorite } from "@/actions/favorite";
 import { cn } from "@/lib/utils";
 // import { checkedIfFavoriteorNot } from "@/actions/favorite";
@@ -40,6 +40,7 @@ export const BoardCard = ({
     const params = useParams();
     const [authorLabel, setAuthorLabel] = useState(params.UserID === authorId ? "You" : "Another");
     const [loading, setLoading] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const getFirstName = async(userID: string) => {
@@ -53,26 +54,19 @@ export const BoardCard = ({
         addSuffix: true,
     })
 
-<<<<<<< HEAD
-    const toggleFavorite = (boardId: string) => {
-        const request = async() => {
-            return await setFavorite(params.UserID as string, boardId );
-=======
     const toggleFavorite = async (boardId: string) => {
         try {
             setLoading(true);
-            await setFavorite(params.UserID as string, boardId);            
+            await setFavorite(params.UserID as string, boardId);   
+            router.push('/')         
         } catch (error) {
             console.log(error);
         } finally {
             setLoading(false);
->>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
         }
-        console.log(request);
-        return request;
     }
 
-// this onClick below that use when click on boardcard and get into it
+    // this onClick below that use when click on boardcard and get into it
     const onClick = () => {
         try {
             setLoading(true);
@@ -86,7 +80,7 @@ export const BoardCard = ({
 
     return (
         <div className="group aspect-[100/127] border rounded-lg flex
-            flex-col justify-between overflow-hidden" onClick={onClick}>
+            flex-col justify-between overflow-hidden relative" onClick={onClick}>
                 <div className="relative flex-1 bg-amber-50">
                     <Image 
                         src={imageUrl}

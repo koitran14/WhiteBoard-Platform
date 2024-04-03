@@ -1,10 +1,7 @@
+
 import axios from "axios";
 
 export interface Favorite {
-<<<<<<< HEAD
-   isFavorite: boolean
-}
-=======
     userId: string,
     boardId: string,
     isFavorite: boolean,
@@ -15,7 +12,6 @@ export interface Favorite {
 //         isFavorite : isFavorite
 //     });
 // }
->>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
 
 export async function checkedIfFavoriteorNot(userId: string, boardId: string): Promise<boolean> {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/favorites/check/${userId}/${boardId}`)

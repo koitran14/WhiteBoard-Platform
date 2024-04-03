@@ -9,7 +9,7 @@ import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
 // import { checkedIfFavoriteorNot } from "@/actions/favorite";
-import { useParams } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 interface BoardListProps{
     orgId: string;
@@ -25,35 +25,21 @@ export const BoardList = ({
 }: BoardListProps) => {
     const [data, setData] = useState<Board[]>();
     const params = useParams();
+    const router = useRouter();
 
     useEffect(() => {
-<<<<<<< HEAD
-        const recheck = async (boards: Board[]) => {
-            const modifiedData = await Promise.all(boards.map(async board => ({
-                ...board,
-                isFavorite: (await checkedIfFavoriteorNot(params.UserID as string, board._id)),
-            })));
-            console.log(modifiedData)
-            return modifiedData;
-        }
-
-        const response = async () => {
-            let boards = await getAllBoards(orgId);
-            const recheckedData = await recheck(boards);
-            setData(recheckedData);
-        }
-
-        response();
-        }, [orgId, params.UserID]);
-
-=======
-       const fetch = async(userId: string, orgId: string) => {
-            const getBoards = await getAllBoards(userId, orgId);
-            setData(getBoards);
-       }
-       fetch(params.UserID as string, orgId);
-    },[params.UserID, orgId])
->>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
+        const fetchBoards = async (userId: string, orgId: string) => {
+            try {
+                const boards = await getAllBoards(userId, orgId);
+                setData(boards);
+            } catch (error) {
+                console.error("Error fetching boards:", error);
+            }
+        };
+    
+        fetchBoards(params.UserID as string, orgId);
+    },[orgId, params.UserID]);
+    
 
     if(data===undefined) {
         return (
@@ -107,11 +93,7 @@ export const BoardList = ({
                         authorId={board.authorId}
                         createdAt={board.createdAt as Date}
                         orgId={board.orgId}
-<<<<<<< HEAD
-                        isFavorite={board.isFavorite !== undefined ? board.isFavorite : false}
-=======
                         isFavorite={board.isFavorite || false}
->>>>>>> 7a62704ebcf2646f050e4bc7d0bf20b27298a285
                     />
                 ))} 
             </div>
