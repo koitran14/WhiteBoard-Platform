@@ -12,7 +12,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export default function HomePage() {
+import dynamic from "next/dynamic";
+
+// export default function HomePage() {
+const HomePage = () => {
     const { userId } = auth();
 
     if (userId) redirect (`/${userId}`);
@@ -58,3 +61,5 @@ export default function HomePage() {
         </Section>
     )
 }
+
+export default dynamic(() => Promise.resolve(HomePage), {ssr: false})
