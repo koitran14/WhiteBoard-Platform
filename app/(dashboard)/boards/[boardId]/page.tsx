@@ -1,4 +1,4 @@
-import { Room } from "@/components/ui/room";
+import { Room } from "@/components/room";
 import { Canvas } from "./_components/canvas";
 import { CanvasLoading } from "./_components/loading";
 
