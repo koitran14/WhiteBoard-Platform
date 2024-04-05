@@ -1,7 +1,7 @@
 "use client"
 
 import {nanoid} from "nanoid";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { LiveObject } from "@liveblocks/client";
 
 import { 
@@ -9,9 +9,10 @@ import {
     useCanRedo, 
     useCanUndo,
     useMutation,
-    useStorage, // is a hook which commonly used w frameworks like React for building rt app. The useMutation hook is typically used for handling mutaions or updates to  data in realtime. It is often utilized in conjunction w GraphQL APIs
+    useStorage,
+    useOthersMapped, // is a hook which commonly used w frameworks like React for building rt app. The useMutation hook is typically used for handling mutaions or updates to  data in realtime. It is often utilized in conjunction w GraphQL APIs
 } from "@/liveblocks.config";
-import { pointerEventToCanvasPoint } from "@/lib/utils";
+import { connectionIdToColor, pointerEventToCanvasPoint } from "@/lib/utils";
 import { 
     Camera, 
     CanvasMode, 
@@ -130,6 +131,19 @@ export const Canvas = ({
         insertLayer,
     ]);
 
+    const selections = useOthersMapped((other) => other.presence.selection);
+
+    const layerIdsToColorSelection = useMemo(() => {
+        const layerIdsToColorSelection: Record<string, string> = {};
+
+        for (const user of selections) {
+            const [connectionId, selection] = user;
+
+            for (const layerId of selection) {
+                layerIdsToColorSelection[layerId] = connectionIdToColor(connectionId)
+            }
+        }
+    }, [selections])
     return (
         <main
             className="h-full w-full relative bg-neutral-100 touch-none"
