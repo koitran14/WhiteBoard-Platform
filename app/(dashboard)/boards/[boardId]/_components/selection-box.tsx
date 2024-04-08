@@ -179,7 +179,7 @@ export const SelectionBox = memo(({
                         x={0}
                         y={0}
                         style={{
-                            cursor: "nesw-resize",
+                            cursor: "ew-resize",
                             width: `${HANDLE_WIDTH}px`,
                             height: `${HANDLE_WIDTH}px`,
                             transform: `translate(
