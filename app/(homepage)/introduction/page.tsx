@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function IntroPage(){
     return (
-        <div className="flex flex-col gap-y-4 md:px-20 px-4 py-2">
+        <div className="flex flex-col gap-y-4 md:px-36 px-4 py-2">
             <div className="flex flex-row gap-x-2 items-center">
                 <Link href='/'>
                     <Home className="w-5 h-5 font-light text-slate-500"/>

@@ -41,33 +41,6 @@ export default function Page() {
             <div>
                 <div>
                     <section>
-                        
-                        <div className="w-full h-[190px] bg-orange-200 z-0">
-                        <p className="font-semibold text-7xl text-orange-300 md:px-20 lg:px-96 z-20">Who</p>
-                        <h1 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">Who</h1>
-                        <h2 className="font-semibold text-7xl text-orange-500 md:px-20 lg:px-96 z-20">We are</h2>
-                        </div>
-                        <div className="mb-6 text-[80px] font-serif font-semibold 
-                                        uppercase leading-[1] md:px-20 lg:px-96 py-12">
-                            <span className=""></span>
-                                <TypeAnimation 
-                                    sequence={[
-                                        'Development...',
-                                        2000,
-                                        'Brainstorming...',
-                                        2000,
-                                        'Visualization...',
-                                        2000,
-                                        'Collaboration...',
-                                        2000,       
-                                    ]}
-                                    speed={50}
-                                    className="text-orange-100 "
-                                    wrapper="span"
-                                    repeat={Infinity}
-                                    />
-                            
-                        </div>
                         <div>
                             <div className="absolute bg-gray-100 h-96 w-8/12 z-[-1] -right-0"></div>
                             <div className="flex justify-center font-mono w-full h-full py-10 gap-x-3">
