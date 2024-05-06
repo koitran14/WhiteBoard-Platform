@@ -8,8 +8,8 @@ export default function IntroPage(){
     return (
         <div className="flex flex-col gap-y-4 md:px-36 px-4 py-2">
             <div className="flex flex-row gap-x-2 items-center">
-                <Link href='/'>
-                    <Home className="w-5 h-5 font-light text-slate-500"/>
+                <Link href='/' className=" transition-all duration-300 hover:scale-110">
+                    <Home className="w-5 h-5 font-light text-slate-500 hover:text-orange-500 "/>
                 </Link> 
                 <ChevronRight className="w-6 h-6 text-slate-500" />
                 <h1 className="text-lg text-slate-500 font-medium">Introduction</h1>
