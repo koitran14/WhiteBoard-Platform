@@ -25,7 +25,6 @@ export const BoardList = ({
 }: BoardListProps) => {
     const [data, setData] = useState<Board[]>();
     const params = useParams();
-    const router = useRouter();
 
     useEffect(() => {
         const fetchBoards = async (userId: string, orgId: string) => {
@@ -36,7 +35,6 @@ export const BoardList = ({
                 console.error("Error fetching boards:", error);
             }
         };
-    
         fetchBoards(params.UserID as string, orgId);
     },[orgId, params.UserID]);
     
