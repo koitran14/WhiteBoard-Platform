@@ -2,6 +2,7 @@
 import { useOrganization } from "@clerk/nextjs";
 import { EmptyOrg } from "./_components/empty-org";
 import { BoardList } from "./_components/board-list";
+import dynamic from "next/dynamic";
 
 interface DashboardPageProps {
     searchParams: {
@@ -29,4 +30,4 @@ const DashboardPage=({
     );
 };
 
-export default DashboardPage;
+export default dynamic(() => Promise.resolve(DashboardPage), {ssr: false})

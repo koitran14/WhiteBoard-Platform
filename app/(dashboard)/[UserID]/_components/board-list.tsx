@@ -84,7 +84,20 @@ export const BoardList = ({
                 <NewBoardButton
                     orgId={orgId}
                 />
-                {data?.map(async (board) => (
+                {query.favorites && data?.map(async (board) => (
+                    board.isFavorite && 
+                    <BoardCard
+                        key={board._id}
+                        id={board._id}
+                        title={board.title}
+                        imageUrl={board.imageUrl}
+                        authorId={board.authorId}
+                        createdAt={board.createdAt as Date}
+                        orgId={board.orgId}
+                        isFavorite={board.isFavorite || false}
+                    />
+                ))} 
+                {!query.favorites && data?.map(async (board) => (
                     <BoardCard
                         key={board._id}
                         id={board._id}
