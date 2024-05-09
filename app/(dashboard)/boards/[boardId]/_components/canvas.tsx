@@ -31,6 +31,7 @@ import { LayerPreview } from "./layer-preview";
 import { CursorsPresence } from "./cursors-presence";
 import { SelectionBox } from "./selection-box";
 import { off } from "process";
+import { SelectionTools } from "./selection-tools";
 
 // const MAX_LAYERS = 100; //maxlayer 
 
@@ -309,6 +310,10 @@ export const Canvas = ({
                 canUndo={canUndo}
                 redo={history.redo}
                 undo={history.undo}
+            />
+            <SelectionTools 
+                camera={camera}
+                setLastUsedColor={setLastUsedColor}
             />
             <svg
                 className="h-[100vh] w-[100vw]"
