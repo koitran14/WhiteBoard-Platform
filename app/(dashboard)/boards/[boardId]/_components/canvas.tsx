@@ -12,7 +12,7 @@ import {
     useStorage,
     useOthersMapped, // is a hook which commonly used w frameworks like React for building rt app. The useMutation hook is typically used for handling mutaions or updates to  data in realtime. It is often utilized in conjunction w GraphQL APIs
 } from "@/liveblocks.config";
-import { connectionIdToColor, pointerEventToCanvasPoint, resizeBounds } from "@/lib/utils";
+import { connectionIdToColor, findIntersectingLayersWithRectangle, pointerEventToCanvasPoint, resizeBounds } from "@/lib/utils";
 import { 
     Camera, 
     CanvasMode, 
@@ -32,6 +32,7 @@ import { CursorsPresence } from "./cursors-presence";
 import { SelectionBox } from "./selection-box";
 import { off } from "process";
 import { SelectionTools } from "./selection-tools";
+import { Caveat } from "next/font/google";
 
 // const MAX_LAYERS = 100; //maxlayer 
 
@@ -134,6 +135,43 @@ export const Canvas = ({
         }
     }, []);
 
+    const updateSelectionNet = useMutation((
+        {storage, setMyPresence},
+        current: Point,
+        origin: Point,
+    ) => {
+        const layers = storage.get("layers").toImmutable();
+        setCanvasState({
+            mode: CanvasMode.SelectionNet,
+            origin,
+            current,
+        });
+
+        const ids = findIntersectingLayersWithRectangle(
+            layerIds,
+            layers,
+            origin,
+            current,
+        );
+
+        setMyPresence({selection: ids});
+    }, [layerIds]);
+
+    const startMultiSelection = useCallback((
+        current: Point,
+        origin: Point,
+    ) => {
+        if(
+            Math.abs(current.x - origin.x) + Math.abs(current.y - origin.y) > 5
+        ) {
+            setCanvasState({
+                mode: CanvasMode.SelectionNet,
+                origin,
+                current,
+            });
+        }
+    }, []);
+
     const resizeSelectedLayers = useMutation((
         { storage, self},
         point: Point,
@@ -185,15 +223,15 @@ export const Canvas = ({
 
         const current = pointerEventToCanvasPoint(e, camera);
 
-        if(canvasState.mode === CanvasMode.Translating) {
+        if( canvasState.mode === CanvasMode.Pressing) {
+            startMultiSelection(current, canvasState.origin);
+        } else if( canvasState.mode === CanvasMode.SelectionNet){
+            updateSelectionNet(current, canvasState.origin);
+        } else if(canvasState.mode === CanvasMode.Translating) {
             translateSelectedLayers(current);
         } else if( canvasState.mode === CanvasMode.Resizing) {
             resizeSelectedLayers(current);
         }
-
-        // if(canvasState.mode === CanvasMode.Resizing){
-        //     resizeSelectedLayer(current);
-        // } 
 
         setMyPresence({ cursor: current });
     }, 
@@ -339,6 +377,15 @@ export const Canvas = ({
                     <SelectionBox
                         onResizeHandlePointerDown={onResizeHandlePointerDown}
                     />
+                    {canvasState.mode === CanvasMode. SelectionNet && canvasState. current != null && (
+                        <rect
+                            className="fill-blue-500/5 stroke-blue-500 stroke-1"
+                            x={Math.min(canvasState.origin.x, canvasState.current.x)}
+                            y={Math.min(canvasState.origin.y, canvasState.current.y)}
+                            width={Math.abs(canvasState.origin.x - canvasState.current.x)}
+                            height={Math.abs(canvasState.origin.y - canvasState.current.y)}
+                        />
+                    )}
                     <CursorsPresence />
                 </g>
             </svg>

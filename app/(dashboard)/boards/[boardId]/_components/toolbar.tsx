@@ -78,7 +78,7 @@ export const ToolBar = ({
                     icon={Circle}
                     onClick={() => setCanvasState({
                         mode: CanvasMode.Inserting,
-                        layerType: LayerType.Rectangle,
+                        layerType: LayerType.Ellipse,
                     })}
                     isActive={
                         canvasState.mode === CanvasMode.Inserting &&
