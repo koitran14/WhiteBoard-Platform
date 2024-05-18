@@ -2,6 +2,7 @@
 
 import { colorToCss } from "@/lib/utils";
 import { Color } from "@/types/canvas"
+import { useState } from "react";
 
 interface ColorPickerProps {
     onChange: (color: Color) => void;
@@ -27,7 +28,7 @@ export const ColorPicker = ({
     ];
     
     const modernColors = [
-        { r: 0, g: 188, b: 212 },  // Cyan
+        // { r: 0, g: 188, b: 212 },  // Cyan
         { r: 156, g: 39, b: 176 },  // Purple
         { r: 255, g: 152, b: 0 },   // Orange
         { r: 0, g: 150, b: 136 },   // Teal
