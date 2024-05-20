@@ -109,6 +109,7 @@ export function findIntersectingLayersWithRectangle(
   return ids;
 };
 
+//For sticky note: make that text contrast with the bg color(bg of note)
 export function getContrastingTextColor(color: Color) {
   const luminance = 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
 
