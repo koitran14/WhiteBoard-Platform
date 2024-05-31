@@ -8,17 +8,24 @@ import { ColorPicker } from "./color-picker";
 import { useDeleteLayers } from "@/hooks/use-delete-layers";
 import { Button } from "@/components/ui/button";
 import { Hint } from "@/components/hint";
-import { BringToFront, SendToBack, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, BringToFront, ClipboardPasteIcon, Copy, SendToBack, Trash2 } from "lucide-react";
 
 interface SelectionToolsProps {
     camera: Camera;
     setLastUsedColor: (color: Color) => void;
+    copyLayers: () => void;
+    pasteLayers: () => void;
+    canPaste: boolean;
 }
 
 export const SelectionTools = memo(({
     camera,
-    setLastUsedColor
+    setLastUsedColor,
+    copyLayers,
+    pasteLayers,
+    canPaste,
 }: SelectionToolsProps) => {
+
     const selection = useSelf((me) => me.presence.selection);
 
     const setFill = useMutation((
@@ -74,6 +81,30 @@ export const SelectionTools = memo(({
         }
     }, [selection]) 
 
+    const moveForward = useMutation((
+        { storage }
+    ) => {
+        const liveLayerIds = storage.get("layerIds");
+        const arr = liveLayerIds.toImmutable();
+
+        for (let i = arr.length - 1; i > 0; i--)
+            if (selection.includes(arr[i - 1])) 
+                liveLayerIds.move(i - 1, i);
+
+    }, [selection])
+
+    const moveBackward = useMutation((
+        { storage }
+    ) => {
+        const liveLayerIds = storage.get("layerIds");
+        const arr = liveLayerIds.toImmutable();
+
+        for (let i = 0; i < arr.length - 1; i++) 
+            if (selection.includes(arr[i + 1])) 
+                liveLayerIds.move(i + 1, i);
+
+    }, [selection])
+
     const deleteLayers = useDeleteLayers();
     const selectionBounds = useSelectionBounds();
 
@@ -83,6 +114,7 @@ export const SelectionTools = memo(({
 
     const x = selectionBounds.width / 2 + selectionBounds.x + camera.x;
     const y = selectionBounds.y + camera.y;
+
 
     return (
         <div 
@@ -97,6 +129,27 @@ export const SelectionTools = memo(({
             <ColorPicker 
                 onChange={setFill}
             />
+            <div className="flex flex-col gap-y-0.5 items-center justify-center">
+
+            <Hint label="Move forward">
+                    <Button
+                        variant="board"
+                        size="icon"
+                        onClick={moveForward}
+                    >
+                        <ArrowUp />
+                    </Button>
+                </Hint>
+                <Hint label="Move backward">
+                    <Button
+                        variant="board"
+                        size="icon"
+                        onClick={moveBackward}
+                    >
+                        <ArrowDown />
+                    </Button>
+                </Hint>
+            </div>
             <div className="flex flex-col gap-y-0.5 items-center justify-center">
                 <Hint label="Bring to front">
                     <Button
@@ -117,7 +170,28 @@ export const SelectionTools = memo(({
                     </Button>
                 </Hint>
             </div>
-            <div className="flex items-center pl-2 ml-2 border-l border-neutral-200">
+            <div className="flex flex-col justify-center items-center pl-2 ml-2 border-l border-neutral-200">
+                <Hint label="Copy">
+                    <Button
+                        variant="board"
+                        size="icon"
+                        onClick={copyLayers}
+                    >
+                        <Copy />
+                    </Button>
+                </Hint>
+                <Hint label="Paste">
+                    <Button
+                        variant="board"
+                        size="icon"
+                        onClick={pasteLayers}
+                        disabled={!canPaste}
+                    >
+                        <ClipboardPasteIcon/>
+                    </Button>
+                </Hint>
+            </div>
+            <div className="flex flex-col justify-center items-center pl-2 ml-2 border-l border-neutral-200">
                 <Hint label="Delete">
                     <Button
                         variant="board"

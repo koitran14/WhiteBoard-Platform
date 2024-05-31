@@ -12,7 +12,7 @@ const HomePageLayout = ({
             <div className="w-full h-fit fixed top-0 left-0 z-50">
                 <Navbar/>
             </div>
-            <Section >
+            <Section>
                 <div  className="pt-28 md:px-24 px-4 pb-5 flex flex-col w-full ">
                     {children}
                 </div> 

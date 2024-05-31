@@ -1,5 +1,6 @@
 import { Hint } from "@/components/ui/hint";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useEffect } from "react";
 
 interface UserAvatarProps {
     src?: string;
@@ -11,6 +12,7 @@ interface UserAvatarProps {
 export const UserAvatar = ({
     src, name, fallback, borderColor
 }: UserAvatarProps) => {
+
     return(
         <Hint label={name || "Teammate"} side="bottom" sideOffset={18}>
             <Avatar

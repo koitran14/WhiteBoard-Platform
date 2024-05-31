@@ -26,6 +26,7 @@ interface ActionsProps {
   sideOffset?: DropdownMenuContentProps["sideOffset"];
   id: string;
   title: string;
+  disable?: boolean | false;
 };
 
 export const Actions = ({
@@ -34,6 +35,7 @@ export const Actions = ({
   sideOffset,
   id,
   title,
+  disable
 }: ActionsProps) => {
     const { onOpen } = useRenameModal();
     const [loading, setLoading] = useState(false);
@@ -81,6 +83,7 @@ export const Actions = ({
         <DropdownMenuItem
           onClick={() => onOpen(id, title)}
           className="p-3 cursor-pointer flex-1"
+          disabled={disable}
         >
           <Pencil className="h-4 w-4 mr-2" />
           Rename
@@ -94,6 +97,7 @@ export const Actions = ({
           <Button
             variant="ghost"
             className="p-3 cursor-pointer text-sm w-full justify-start font-normal"
+            disabled={disable}
           >
             <Trash2 className="h-4 w-4 mr-2" />
             Delete

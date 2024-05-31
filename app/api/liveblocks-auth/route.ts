@@ -17,9 +17,9 @@ export async function POST(request: Request) {
     const { room } = await request.json();
     const board = await getBoardById(room);
 
-    if (board?.orgId !== authorization.orgId){
-        return new Response("Unauthorized");
-    }
+    // if (board?.orgId !== authorization.orgId){
+    //     return new Response("Unauthorized");
+    // }
 
     const userInfo = {
         name: user.firstName || "Teammate",

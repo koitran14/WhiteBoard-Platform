@@ -1,3 +1,5 @@
+"use client"
+
 import { Room } from "@/components/room";
 import { Canvas } from "./_components/canvas";
 import { CanvasLoading } from "./_components/loading";
