@@ -10,6 +10,7 @@ const font = Kalam({
     weight: ["400"],
 });
 
+//Provide a size of font that fit the frame following the scaleFactor
 const calculateFontSize = (width: number, height: number) => {
     const maxFontSize = 72;
     const scaleFactor = 0.25;
