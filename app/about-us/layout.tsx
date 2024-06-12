@@ -12,7 +12,7 @@ const HomePageLayout = ({
                 <Navbar/>
             </div>
             <Section >
-                <div  className="pt-24">
+                <div  className="">
                     {children}
                 </div> 
             </Section>   

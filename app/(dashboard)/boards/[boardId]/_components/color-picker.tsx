@@ -28,14 +28,21 @@ export const ColorPicker = ({
     ];
     
     const modernColors = [
-        // { r: 0, g: 188, b: 212 },  // Cyan
+        { r: 0, g: 188, b: 212 },  // Cyan
         { r: 156, g: 39, b: 176 },  // Purple
-        { r: 255, g: 152, b: 0 },   // Orange
+        { r: 255, g: 145, b: 77 },   // Orange
         { r: 0, g: 150, b: 136 },   // Teal
         { r: 33, g: 150, b: 243 },  // Blue
         { r: 244, g: 67, b: 54 },    // Red
         { r: 0, g: 0, b: 0 },       // Black
-        { r: 255, g: 255, b: 255 }  // White
+        { r: 255, g: 255, b: 255 },  // White
+
+        { r: 3, g: 72, b: 156 },  // White
+        { r: 238, g: 239, b: 239 },  // White
+        { r: 15, g: 37, b: 83 },  // White
+        { r: 255, g: 218, b: 185 },  // Pastel Peach
+
+
     ];
 
     return (

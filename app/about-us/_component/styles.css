@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #222222;
+  }
+  
+  circle,
+  rect,
+  line {
+    stroke-width: 1px;
+    stroke-linecap: round;
+    fill: transparent;
+  }
+  
