@@ -23,11 +23,11 @@ export default function Page (){
             </div>
             <div className="px-3 w-full h-full md:pr-4 flex items-center justify-center">
                 <div className="relative z-20">
-                    <div className=" rounded-2xl h-fit w-fit">
+                    <div className=" rounded-2xl h-fit w-fit border border-black">
                         <SignIn />
                     </div>
-                    <div className="w-full  rounded-2xl bg-orange-500 shadow-xl absolute h-full -z-20 top-7 left-7"/>
-                    <div className="w-full  rounded-2xl bg-orange-300 absolute h-full -z-10 top-3.5 left-3.5"/>
+                    <div className="w-full  rounded-2xl bg-orange-500 border-black border shadow-xl absolute h-full -z-20 top-7 left-7"/>
+                    <div className="w-full  rounded-2xl border border-black bg-orange-300 absolute h-full -z-10 top-3.5 left-3.5"/>
                 </div>
             </div>
         </div>

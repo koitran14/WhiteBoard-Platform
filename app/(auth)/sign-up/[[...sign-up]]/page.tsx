@@ -13,7 +13,7 @@ export default function Page (){
                    
                 </div>
             </div> 
-            <div className="w-full h-full flex flex-col items-center justify-center px-2 z-30">
+            <div className="w-full h-full flex flex-col items-center justify-center px-2 z-30 border border-black">
                 <SignUp/>
             </div>
             <div className="w-[175%] h-full absolute top-[55%] bg-orange-600 rounded-[90%] z-10"/>

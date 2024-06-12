@@ -4,9 +4,9 @@ import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/themeprovider";
 import { Suspense } from "react";
-import { Loading } from "@/components/auth/loading";
 import { ModalProvider } from "@/providers/modal-provider";
 import { Toaster } from "@/components/ui/sonner";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 

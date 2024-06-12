@@ -29,7 +29,7 @@ import {
             {children}
           </TooltipTrigger>
           <TooltipContent
-            className="text-white bg-black border-black "
+            className="text-white bg-black border-black rounded-3xl"
             side={side}
             align={align}
             sideOffset={sideOffset}

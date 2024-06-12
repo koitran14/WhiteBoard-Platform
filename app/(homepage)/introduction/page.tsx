@@ -1,12 +1,12 @@
 import { FAQ } from "@/components/homepage/faq";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Home } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function IntroPage(){
     return (
-        <div className="flex flex-col gap-y-4 md:px-36 px-4 py-2">
+        <div className="flex flex-col gap-y-4 md:px-72 px-4 py-2">
             <div className="flex flex-row gap-x-2 items-center">
                 <Link href='/' className=" transition-all duration-300 hover:scale-110">
                     <Home className="w-5 h-5 font-light text-slate-500 hover:text-orange-500 "/>
@@ -76,9 +76,9 @@ export default function IntroPage(){
             </div>
 
             <Link href={'/about-us'} className="w-full flex items-center justify-end">
-                <Button className="flex hover:scale-105 transition duration-300 ease-in-out flex-row items-center gap-x-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
-                    About Us 
-                    <ChevronRight className="w-6 h-6"/>
+                <Button className=" flex items-center text-md flex-row rounded-2xl bg-white text-black border-black border hover:bg-lime-400 gap-x-1 px-4 hover:scale-105 transition ease-in-out hover:duration-900">
+                    About us
+                    <ArrowUpRight className="w-6 h-6"/>
                 </Button>
             </Link>
         </div>

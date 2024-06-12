@@ -58,7 +58,7 @@ export function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-md">Getting started  </NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-md bg-transparent">Getting started  </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -91,7 +91,7 @@ export function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-md">Features</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-md bg-transparent">Features</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -108,7 +108,7 @@ export function NavMenu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="https://github.com/koitran14/WhiteBoard-Platform" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()} >
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent')} >
               Documentation
             </NavigationMenuLink>
           </Link>

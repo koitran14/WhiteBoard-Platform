@@ -254,12 +254,12 @@ export default function Page() {
                                         className="group-hover:animate-pulse transition duration-150" 
                                         style="color:transparent" 
                                         src="/logo.svg"> */}
-                                <img src="/logo.svg" alt="logo" loading="lazy"
-                                        width="120" 
-                                        height="120" 
-                                        decoding="async" 
-                                        data-nimg="1" 
-                                        className="group-hover:animate-pulse transition duration-150"
+                                        <Image src="/logo.svg" alt="logo" loading="lazy"
+                                            width="120" 
+                                            height="120" 
+                                            decoding="async" 
+                                            data-nimg="1" 
+                                            className="group-hover:animate-pulse transition duration-150"
                                          />
                                 <span className="hidden bg-gradient-to-r font-bold text-white md:inline-block 
                                                 text-transparent bg-clip-text text-2xl">
