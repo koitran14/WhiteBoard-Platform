@@ -1,0 +1,49 @@
+.gallery{
+    height: 175vh;
+    background: rgb(238,239,239);
+    position: relative;
+    display: flex;
+    gap: 2vw;
+    padding: 2vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 0px 100px 0px;
+    .column{
+        position: relative;
+        height: 100%;
+        width: 25%;
+        min-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+        
+        .imageContainer{
+            height: 100%;
+            width: 100%;
+            position: relative;
+            border-radius: 1vw;
+            overflow: hidden;
+            
+            img{
+                object-fit: cover;
+                
+            }
+        }
+        &:nth-of-type(1){
+            top: -45%;
+        }
+        &:nth-of-type(2){
+            top: -95%;
+        }
+        &:nth-of-type(3){
+            top: -45%;
+        }
+        // &:nth-of-type(4){
+        //     top: -75%;
+        // }
+    }
+}
+.spacer{
+    height: 100vh;
+}

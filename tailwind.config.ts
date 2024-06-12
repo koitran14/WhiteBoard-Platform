@@ -19,6 +19,30 @@ const config = {
     },
     extend: {          
       colors: {
+        //Color palete
+        "darkbluelight":"#03489c",
+        "darkblueheavy":"#0f2553",
+        "milkwhite":"#eeefef",
+
+        "greenolive":"#6E9277",
+        "lime":"#E2E8A7",
+        "redplum":"#B84C65",
+
+        "oceantext":"#00215E",
+        "halfpastelviolet":"#9EA1D4",
+        "liteblue":"#A8D1D1",
+
+        "freshorange": "#FC4100",
+        "deepyellow": "#FFC55A",
+
+        "redpink":"#FD8A8A",
+
+        "yellowsuperpastel": "#fffcef",
+
+
+
+
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
