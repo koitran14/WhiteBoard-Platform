@@ -9,7 +9,7 @@ import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
 // import { checkedIfFavoriteorNot } from "@/actions/favorite";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface BoardListProps{
     orgId: string;
@@ -25,18 +25,25 @@ export const BoardList = ({
 }: BoardListProps) => {
     const [data, setData] = useState<Board[]>();
     const params = useParams();
+    const searchParams = useSearchParams();
 
     useEffect(() => {
         const fetchBoards = async (userId: string, orgId: string) => {
             try {
                 const boards = await getAllBoards(userId, orgId);
-                setData(boards);
+                const searchQuery = searchParams.get('search')?.toLowerCase() || ''; // Get the search parameter
+                
+                const filteredBoards = boards.filter((board) => {
+                    return board.title.toLowerCase().includes(searchQuery);
+                });
+
+                setData(filteredBoards);
             } catch (error) {
                 console.error("Error fetching boards:", error);
             }
         };
         fetchBoards(params.UserID as string, orgId);
-    },[orgId, params.UserID]);
+    },[orgId, params.UserID, searchParams]);
     
 
     if(data===undefined) {

@@ -21,7 +21,7 @@ export const Participants = () => {
                             key={connectionId} 
                             src={info?.picture} 
                             name={info?.name} 
-                            fallback={info?.name?.[0] || "T"}
+                            fallback={info?.name?.[0] || "Teammate"}
                             borderColor={connectionIdToColor(connectionId)}
                         />
                     );

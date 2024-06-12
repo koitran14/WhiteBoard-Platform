@@ -7,7 +7,6 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { renameBoard } from "@/actions/board";
-import { usePathname, useRouter } from "next/navigation";
 
 export const RenameModal = () => {
     const { isOpen, onClose, initialValues } = useRenameModal();

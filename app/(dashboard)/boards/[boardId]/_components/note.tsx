@@ -11,7 +11,7 @@ const font = Kalam({
 });
 
 const calculateFontSize = (width: number, height: number) => {
-    const maxFontSize = 96;
+    const maxFontSize = 72;
     const scaleFactor = 0.15; //Scale text over the size of shape
     const fontSizeBasedOnHeight = height * scaleFactor;
     const fontSizeBasedOnWidth = width * scaleFactor;
@@ -51,6 +51,8 @@ export const Note = ({
         updateValue(e.target.value);
     }
 
+    console.log(fill)
+
     return (
         <foreignObject
             x={x}
@@ -62,13 +64,13 @@ export const Note = ({
                 outline: selectionColor ? `1px solid ${selectionColor}` : "none",
                 backgroundColor: fill ? colorToCss(fill) : "#000",
             }}
-            className="shadow-md drop-shadow-xl "
+            className="shadow-md drop-shadow-xl p-5"
         >
             <ContentEditable
                 html={value || "Text" || ""}
                 onChange={handleContentChange}
                 className={cn(
-                    "h-full w-full flex items-center justify-center text-center outline-none",
+                    "h-full w-full flex flex-col items-center justify-center text-center outline-none",
                     font.className
                 )}
                 style={{

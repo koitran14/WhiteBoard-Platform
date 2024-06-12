@@ -1,7 +1,7 @@
 "use client"
 
-import {nanoid} from "nanoid";
-import { useCallback, useMemo, useState, useEffect } from "react";
+import { nanoid } from "nanoid";
+import { useCallback, useMemo, useState, useEffect, useRef } from "react";
 import { LiveObject } from "@liveblocks/client";
 
 import { 
@@ -15,7 +15,6 @@ import {
 } from "@/liveblocks.config";
 import { useDisableScrollBounce } from "@/hooks/use-disable-scroll-bounce";
 import { useDeleteLayers } from "@/hooks/use-delete-layers";
-
 import { colorToCss, connectionIdToColor, findIntersectingLayersWithRectangle, penPointsToPathLayer, pointerEventToCanvasPoint, resizeBounds } from "@/lib/utils";
 import { 
     Camera, 
@@ -36,8 +35,9 @@ import { CursorsPresence } from "./cursors-presence";
 import { SelectionBox } from "./selection-box";
 import { SelectionTools } from "./selection-tools";
 import { Path } from "./path";
+import { useOrganization } from "@clerk/nextjs";
 
-const MAX_LAYERS = 100; //maxlayer 
+const MAX_LAYERS = 250; //maxlayer 
 
 interface CanvasProps {
     boardId: string;
@@ -47,7 +47,17 @@ export const Canvas = ({
     boardId,
 }: CanvasProps) => {
     const layerIds = useStorage((root) => root.layerIds);
+
+    const { membership } = useOrganization();
+    const [editable, setEditable] = useState(false);
     
+    useEffect(() => {
+        if (membership) 
+            setEditable(true);
+    }, [membership]);
+
+    useDisableScrollBounce();    
+
     const pencilDraft = useSelf((me) => me.presence.pencilDraft)
     const [canvasState, setCanvasState] = useState<CanvasState>({
         mode: CanvasMode.None,
@@ -61,8 +71,6 @@ export const Canvas = ({
         b: 0,
     });
 
-    //hooks 
-    useDisableScrollBounce();
     //redo and undo by using History of liveblocks cause we're working on Liveblocks layers.
     const history = useHistory();
     const canUndo = useCanUndo();
@@ -97,7 +105,7 @@ export const Canvas = ({
         {storage, self},
         point: Point,
     ) => {
-        if (canvasState.mode !== CanvasMode.Translating) {
+        if (canvasState.mode !== CanvasMode.Translating || !editable) {
             return;
         }
 
@@ -118,9 +126,8 @@ export const Canvas = ({
                 });
             }
         }
-
         setCanvasState({mode: CanvasMode.Translating, current: point});
-    },[canvasState]);
+    },[canvasState, editable]);
 
     const unselectLayers = useMutation((
         { self, setMyPresence }
@@ -136,6 +143,9 @@ export const Canvas = ({
         origin: Point,
     ) => {
         const layers = storage.get("layers").toImmutable();
+
+        if (!editable) return;
+
         setCanvasState({
             mode: CanvasMode.SelectionNet,
             origin,
@@ -150,12 +160,14 @@ export const Canvas = ({
         );
 
         setMyPresence({selection: ids});
-    }, [layerIds]);
+    }, [layerIds, editable]);
 
     const startMultiSelection = useCallback((
         current: Point,
         origin: Point,
     ) => {
+        if (!editable) return;
+        
         if(
             Math.abs(current.x - origin.x) + Math.abs(current.y - origin.y) > 5
         ) {
@@ -165,7 +177,7 @@ export const Canvas = ({
                 current,
             });
         }
-    }, []);
+    }, [editable]);
 
     const continueDrawing = useMutation((
         { self, setMyPresence },
@@ -265,13 +277,14 @@ export const Canvas = ({
         corner: Side,
         initialBounds: XYWH,
     ) => {
+        if (!editable) return;
         history.pause();
         setCanvasState({
             mode: CanvasMode.Resizing,
             initialBounds,
             corner,
         });
-    }, [])
+    }, [editable])
 
     const onWheel = useCallback((e: React.WheelEvent) => {
         setCamera((camera) => ({
@@ -287,6 +300,11 @@ export const Canvas = ({
         e.preventDefault();
 
         const current = pointerEventToCanvasPoint(e, camera);
+
+        if (!editable) {
+            setCanvasState({ mode: CanvasMode.None})
+            if (!membership) return;
+        }
 
         if( canvasState.mode === CanvasMode.Pressing) {
             startMultiSelection(current, canvasState.origin);
@@ -309,7 +327,9 @@ export const Canvas = ({
         resizeSelectedLayers,
         translateSelectedLayers,
         updateSelectionNet,
-        startMultiSelection
+        startMultiSelection,
+        editable,
+        membership
     ]); 
 
     const onPointerLeave = useMutation(({ setMyPresence }) => {
@@ -365,7 +385,7 @@ export const Canvas = ({
         insertLayer,
         unselectLayers,
         insertPath,
-        setCanvasState,
+        setCanvasState
     ]);
 
     const selections = useOthersMapped((other) => other.presence.selection);
@@ -376,7 +396,8 @@ export const Canvas = ({
         layerId: string,
     ) => {
         if ( canvasState.mode === CanvasMode.Pencil ||
-            canvasState.mode === CanvasMode.Inserting
+            canvasState.mode === CanvasMode.Inserting ||
+            !editable
         ) {
             return;
         }
@@ -395,7 +416,8 @@ export const Canvas = ({
         setCanvasState,
         camera,
         history,
-        canvasState.mode
+        canvasState.mode,
+        editable
     ])
 
     const layerIdsToColorSelection = useMemo(() => {
@@ -414,8 +436,66 @@ export const Canvas = ({
     // for undo/redo keystrokes
     const deleteLayers = useDeleteLayers()
 
+    const [canPaste, setCanPaste] = useState(false);
+
+    const copyLayers = useMutation(({ storage, self, setMyPresence }) => {
+        const liveLayers = storage.get("layers");
+        const selection = self.presence.selection;
+    
+        const copiedLayers = selection.map((layerId) => {
+            const layer = liveLayers.get(layerId);
+            if (layer) {
+                setCanPaste(true);
+                return {
+                    id: nanoid(),
+                    data: layer.toObject(),
+                };
+            }
+            return null;
+        }).filter((layer): layer is { id: string; data: any } => layer !== null);
+    
+       setMyPresence({ copiedLayers }); 
+    }, []);
+    
+    const pasteLayers = useMutation(({ storage, self, setMyPresence }) => {
+        const liveLayers = storage.get("layers");
+        const liveLayerIds = storage.get("layerIds");
+        const copiedLayers = self.presence.copiedLayers;
+    
+        if (copiedLayers && copiedLayers.length > 0) {
+            const newLayerIds = copiedLayers.map((copiedLayer) => {
+                const newLayer = new LiveObject({
+                    ...copiedLayer.data,
+                    x: copiedLayer.data.x + 10, // Offset new layers slightly for visibility
+                    y: copiedLayer.data.y + 10,
+                });
+                const newLayerId = nanoid();
+                liveLayers.set(newLayerId, newLayer);
+                setCanPaste(false);
+                return newLayerId;
+            });
+    
+            newLayerIds.map((id) => liveLayerIds.push(id))
+            setMyPresence({ selection: newLayerIds }); // Set the new selection
+        }
+    }, []);
+
+    const selectAllLayers = useMutation((
+        { storage, setMyPresence }
+    ) => {
+        
+        const allLayerIds = [...storage.get("layerIds").toImmutable()];
+        setMyPresence({ selection: allLayerIds })
+    }, [])
+
+    //interact with canvas by keyboard
     useEffect(() => {
         function onKeyDown(e: KeyboardEvent) {
+            if (!editable) {
+                e.preventDefault();
+                return;
+            };
+
             switch (e.key) {
                 case "z": {
                     if (e.ctrlKey || e.metaKey) {
@@ -426,25 +506,55 @@ export const Canvas = ({
                         }
                         break;
                     }
+                    break;
                 }
-                case "Delete": 
+                case "Delete":
                     deleteLayers();
+                    break;
+                case "c": {
+                    if (e.ctrlKey || e.metaKey) {
+                        copyLayers();
+                        break;
+                    }
+                    break;
+                }
+                case "v": {
+                    if (e.ctrlKey || e.metaKey) {
+                        pasteLayers();
+                        break;
+                    }
+                    break;
+                }
+                case "a": {
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        selectAllLayers();
+                        break;
+                    }
+                    break;
+                }
+                default:
                     break;
             }
         }
     
-        window.addEventListener("keydown", onKeyDown); // Ensure it's added to window
+        window.addEventListener("keydown", onKeyDown);
     
         return () => {
             window.removeEventListener("keydown", onKeyDown);
-        }
-    }, [deleteLayers, history]);
+        };
+    }, [copyLayers, pasteLayers, deleteLayers, history, selectAllLayers, editable]);
+    
+    useEffect(() => {
+        if (!editable)
+            unselectLayers();
+    },[editable, unselectLayers]);
 
     return (
         <main
             className="h-full w-full relative bg-neutral-100 touch-none"
         >
-            <Info boardId={boardId}/>
+            <Info boardId={boardId} editable={editable} setEditable={setEditable}/>
             <Participants />
             <ToolBar 
                 canvasState={canvasState}
@@ -453,11 +563,17 @@ export const Canvas = ({
                 canUndo={canUndo}
                 redo={history.redo}
                 undo={history.undo}
+                editable={editable}
             />
-            <SelectionTools 
-                camera={camera}
-                setLastUsedColor={setLastUsedColor}
-            />
+            {editable && 
+                <SelectionTools 
+                    camera={camera}
+                    setLastUsedColor={setLastUsedColor}
+                    copyLayers={copyLayers}
+                    pasteLayers={pasteLayers}
+                    canPaste={canPaste}
+                />
+            }
             <svg
                 className="h-[100vh] w-[100vw]"
                 onWheel={onWheel}
@@ -465,6 +581,7 @@ export const Canvas = ({
                 onPointerLeave={onPointerLeave}
                 onPointerDown={onPointerDown}
                 onPointerUp={onPointerUp}
+                tabIndex={0}
             >
                 <g
                     style={{

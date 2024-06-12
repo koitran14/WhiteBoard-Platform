@@ -14,14 +14,13 @@ import 'swiper/css/scrollbar';
 
 import dynamic from "next/dynamic";
 
-// export default function HomePage() {
 const HomePage = () => {
     const { userId } = auth();
 
     if (userId) redirect (`/${userId}`);
 
     return (
-        <Section>
+        <div>
             <div className="overflow-x-hidden w-full h-full md:pt-5 flex flex-col gap-y-16"> 
                 <div className="bg-gradient-to-r sm:px-1 px-2 from-yellow-200/50 dark:from-yellow-200 dark:via-amber-200 dark:to-rose-300 via-amber-200/90 to-red-100/70 h-full w-full flex flex-col md:flex-row items-center gap-y-2 rounded-xl md:rounded-l-xl md:rounded-br-xl md:rounded-tr-[80px] backdrop-blur-md">
                     <div className="md:w-[48%] px-3 w-full h-full flex flex-row items-center justify-center">
@@ -58,7 +57,7 @@ const HomePage = () => {
                 </RevealOnScroll>
 
             </div>
-        </Section>
+        </div>
     )
 }
 

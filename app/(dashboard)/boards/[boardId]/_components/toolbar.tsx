@@ -12,6 +12,7 @@ interface ToolbarProps {
     redo: () => void;
     canUndo: boolean;
     canRedo: boolean;
+    editable: boolean;
 }
 
 export const ToolBar = ({
@@ -20,7 +21,8 @@ export const ToolBar = ({
     undo,
     redo,
     canUndo,
-    canRedo
+    canRedo,
+    editable
 }: ToolbarProps) => {
     return (
         <div className="absolute top-[50%] -translate-y-[50%] left-2 flex flex-col gap-y-4">
@@ -36,6 +38,7 @@ export const ToolBar = ({
                         canvasState.mode === CanvasMode.Pressing ||
                         canvasState.mode === CanvasMode.Resizing 
                     }
+                    isDisabled={!editable}
                 />
                 <ToolButton 
                     label="Text"
@@ -48,6 +51,7 @@ export const ToolBar = ({
                         canvasState.mode === CanvasMode.Inserting &&
                         canvasState.layerType === LayerType.Text
                     }
+                    isDisabled={!editable}
                 />
                 <ToolButton 
                     label="Sticky Note"
@@ -60,6 +64,7 @@ export const ToolBar = ({
                         canvasState.mode === CanvasMode.Inserting &&
                         canvasState.layerType === LayerType.Note
                     }
+                    isDisabled={!editable}
                 />
                 <ToolButton 
                     label="Rectangle"
@@ -72,6 +77,7 @@ export const ToolBar = ({
                         canvasState.mode === CanvasMode.Inserting &&
                         canvasState.layerType === LayerType.Rectangle
                     }
+                    isDisabled={!editable}
                 />
                 <ToolButton 
                     label="Ellipse"
@@ -84,6 +90,7 @@ export const ToolBar = ({
                         canvasState.mode === CanvasMode.Inserting &&
                         canvasState.layerType === LayerType.Ellipse
                     }
+                    isDisabled={!editable}
                 />
                 <ToolButton 
                     label="Pen"
@@ -94,6 +101,7 @@ export const ToolBar = ({
                     isActive={
                         canvasState.mode === CanvasMode.Pencil
                     }
+                    isDisabled={!editable}
                 />
             </div>
             <div className="bg-white rounded-md p-1.5 flex flex-col items-center shadow-md">
@@ -101,13 +109,13 @@ export const ToolBar = ({
                     label="Undo"
                     icon={Undo2}
                     onClick={undo}
-                    isDisabled={!canUndo}
+                    isDisabled={!canUndo || !editable}
                 />
                 <ToolButton 
                     label="Redo"
                     icon={Redo2}
                     onClick={redo}
-                    isDisabled={!canRedo}
+                    isDisabled={!canRedo || !editable}
                 />
             </div>
         </div>
