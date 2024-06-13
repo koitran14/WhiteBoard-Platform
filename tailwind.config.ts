@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {          
+      backgroundImage: {
+        'custom-grid': "url('/graph-paper.svg')"
+      },
       colors: {
         //Color palete
         "darkbluelight":"#03489c",

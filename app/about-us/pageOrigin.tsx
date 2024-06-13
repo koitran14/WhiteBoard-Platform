@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { TypeAnimation } from "react-type-animation";
-import { TeamMember } from "./_component/team-member";
-import { ValueCard } from "./_component/value-card";
+import { TeamMember } from "./_components/team-member";
+import { ValueCard } from "./_components/value-card";
 
 
 

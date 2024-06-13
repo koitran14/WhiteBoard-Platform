@@ -46,7 +46,7 @@
     "react-redux": "^9.1.0",
     "react-type-animation": "^3.2.0",
     "resize-observer-polyfill": "^1.5.1",
-    "sass": "^1.77.4",
+    "sass": "^1.77.5",
     "sonner": "^1.4.3",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.1",
