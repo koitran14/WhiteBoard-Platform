@@ -15,7 +15,7 @@ import {
 } from "@/liveblocks.config";
 import { useDisableScrollBounce } from "@/hooks/use-disable-scroll-bounce";
 import { useDeleteLayers } from "@/hooks/use-delete-layers";
-import { colorToCss, connectionIdToColor, findIntersectingLayersWithRectangle, penPointsToPathLayer, pointerEventToCanvasPoint, resizeBounds } from "@/lib/utils";
+import { cn, colorToCss, connectionIdToColor, findIntersectingLayersWithRectangle, penPointsToPathLayer, pointerEventToCanvasPoint, resizeBounds } from "@/lib/utils";
 import { 
     Camera, 
     CanvasMode, 
@@ -552,7 +552,10 @@ export const Canvas = ({
 
     return (
         <main
-            className="h-full w-full relative bg-neutral-100 touch-none"
+            className={cn("h-full w-full relative bg-neutral-100 touch-none",
+                editable &&
+                "bg-[url('/graph-paper.svg')] bg-opacity-20 bg-white"
+            )}
         >
             <Info boardId={boardId} editable={editable} setEditable={setEditable}/>
             <Participants />

@@ -3,15 +3,15 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { TypeAnimation } from "react-type-animation";
-import { TeamMember } from "./_component/team-member";
-import { ValueCard } from "./_component/value-card";
+import { TeamMember } from "./_components/team-member";
+import { ValueCard } from "./_components/value-card";
 
-import Punchline from "./_component/Punchline";
-import Intro from "./_component/Introduce-member";
-import WordUs from "./_component/Word-from-us";
-import Value from "./_component/Value";
-import GetStart from "./_component/Getstart";
-import FooterAU from "./_component/Footer";
+import Punchline from "./_components/Punchline";
+import Intro from "./_components/Introduce-member";
+import WordUs from "./_components/Word-from-us";
+import Value from "./_components/Value";
+import GetStart from "./_components/Getstart";
+import FooterAU from "./_components/Footer";
 import { 
     useState,
     useEffect

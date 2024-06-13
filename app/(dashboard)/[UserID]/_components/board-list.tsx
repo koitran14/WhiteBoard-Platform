@@ -1,17 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useCallback } from "react";
 import { BoardCard } from "./board-card";
 import { EmptyBoards } from "./empty-boards";
 import { EmptyFavorites } from "./empty-favorites";
 import { EmptySearch } from "./empty-search";
 import { NewBoardButton } from "./new-board-button";
 import { Board, getAllBoards } from "@/actions/board";
-// import { checkedIfFavoriteorNot } from "@/actions/favorite";
-import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 
-interface BoardListProps{
+interface BoardListProps {
     orgId: string;
     query: {
         search?: string;
@@ -23,97 +21,90 @@ export const BoardList = ({
     orgId,
     query,
 }: BoardListProps) => {
-    const [data, setData] = useState<Board[]>();
+    const [data, setData] = useState<Board[]>([]);
+    const [filteredData, setFilteredData] = useState<Board[]>([]);
+    const [loading, setLoading] = useState(true);
     const params = useParams();
     const searchParams = useSearchParams();
 
+    const fetchBoards = useCallback(async (userId: string, orgId: string) => {
+        try {
+            setLoading(true);
+            const boards = await getAllBoards(userId, orgId);
+            setData(boards);
+        } catch (error) {
+            console.error("Error fetching boards:", error);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
     useEffect(() => {
-        const fetchBoards = async (userId: string, orgId: string) => {
-            try {
-                const boards = await getAllBoards(userId, orgId);
-                const searchQuery = searchParams.get('search')?.toLowerCase() || ''; // Get the search parameter
-                
-                const filteredBoards = boards.filter((board) => {
-                    return board.title.toLowerCase().includes(searchQuery);
-                });
-
-                setData(filteredBoards);
-            } catch (error) {
-                console.error("Error fetching boards:", error);
-            }
-        };
         fetchBoards(params.UserID as string, orgId);
-    },[orgId, params.UserID, searchParams]);
-    
+    }, [orgId, params.UserID, fetchBoards]);
 
-    if(data===undefined) {
+    useEffect(() => {
+        const searchQuery = searchParams.get('search')?.toLowerCase() || '';
+
+        const filteredBoards = data.filter((board) => 
+            board.title.toLowerCase().includes(searchQuery)
+        );
+
+        setFilteredData(filteredBoards);
+    }, [data, searchParams]);
+
+    if (loading) {
         return (
             <div>
                 <h2 className="text-3xl">
                     {query.favorites ? "Favorites sketchas" : "Team sketchas"}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
-                lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
-                    <NewBoardButton
-                        orgId={orgId}
-                        disabled
-                    />
-                    <BoardCard.Skeleton/>
-                    <BoardCard.Skeleton/>
-                    <BoardCard.Skeleton/>
-                    <BoardCard.Skeleton/>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
+                    <NewBoardButton orgId={orgId} disabled />
+                    <BoardCard.Skeleton />
+                    <BoardCard.Skeleton />
+                    <BoardCard.Skeleton />
+                    <BoardCard.Skeleton />
                 </div>
             </div>
-        )
+        );
     }
 
-    if(!data?.length && query.search){
-        return <EmptySearch/>;
+    if (!filteredData.length && query.search) {
+        return <EmptySearch />;
     }
 
-    if(!data?.length && query.favorites){
-        return <EmptyFavorites/>
+    if (!filteredData.length && query.favorites) {
+        return <EmptyFavorites />;
     }
 
-    if(!data?.length){
-        return <EmptyBoards/>
+    if (!filteredData.length) {
+        return <EmptyBoards />;
     }
 
-    return(
+    const boardsToRender = query.favorites 
+        ? filteredData.filter(board => board.isFavorite)
+        : filteredData;
+
+    return (
         <div>
             <h2 className="text-3xl">
                 {query.favorites ? "Favorites sketchas" : "Team sketchas"}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
-            lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
-                <NewBoardButton
-                    orgId={orgId}
-                />
-                {query.favorites && data?.map(async (board) => (
-                    board.isFavorite && 
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
+                <NewBoardButton orgId={orgId} />
+                {boardsToRender.map(board => (
                     <BoardCard
                         key={board._id}
                         id={board._id}
                         title={board.title}
                         imageUrl={board.imageUrl}
                         authorId={board.authorId}
-                        createdAt={board.createdAt as Date}
+                        createdAt={new Date(board.createdAt || '')}
                         orgId={board.orgId}
                         isFavorite={board.isFavorite || false}
                     />
-                ))} 
-                {!query.favorites && data?.map(async (board) => (
-                    <BoardCard
-                        key={board._id}
-                        id={board._id}
-                        title={board.title}
-                        imageUrl={board.imageUrl}
-                        authorId={board.authorId}
-                        createdAt={board.createdAt as Date}
-                        orgId={board.orgId}
-                        isFavorite={board.isFavorite || false}
-                    />
-                ))} 
+                ))}
             </div>
         </div>
     );
