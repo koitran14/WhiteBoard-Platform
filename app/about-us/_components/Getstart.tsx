@@ -22,7 +22,7 @@ import logo_white from "/public/about_us/logo_white.svg";
 
 const draw = {
     hidden: { pathLength: 0, opacity: 0 },
-    visible: (i) => {
+    visible: (i : any) => {
       const delay = 1 + i * 0.5;
       return {
         pathLength: 1,
@@ -117,16 +117,16 @@ const GetStart = () => {
                     </motion.div>
  
                     <div className="flex flex-row">
-                        <div className="absolute bg-darkblueheavy w-10/12 h-fit mx-auto  rounded-t-[50px] border-x-[1px] border-t-[1px] border-black inset-x-0 bottom-0">
-                            <div className="p-[40px] flex flex-row gap-x-5">
-                                <div className="flex flex-row gap-x-3 ml-[200px] mr-20">
+                        <div className="absolute bg-darkblueheavy w-10/12 h-fit mx-auto rounded-t-[50px] border-x-[1px] border-t-[1px] border-black inset-x-0 bottom-0">
+                            <div className="p-[40px] flex flex-row gap-x-5 justify-center">
+                                <div className="flex flex-row gap-x-3 mr-20">
                                     <Image
                                         src={logo_white}
                                         alt=""
                                         width={80}
                                     />
                                     <p className={cn(
-                                        " my-auto text-white text-[40px] font-serif font-bold",
+                                        " my-auto text-white text-[35px] font-serif font-bold",
                                         raleway.className
                                     )}>Sketcha </p>
                                 </div>
@@ -134,7 +134,7 @@ const GetStart = () => {
                                     <div className="font-semibold font-sans lg:text-xl text-white py-3">
                                         Help and Advice
                                     </div>
-                                    <div className=" text-gray-300 text-secondary">
+                                    <div className=" text-gray-300 text-secondary text-[13px]">
                                         <ul className="hover:underline">
                                             <a href="/sign-in">Getting started</a>
                                         </ul>
@@ -148,7 +148,7 @@ const GetStart = () => {
                                     <div className="font-semibold font-sans md:text-xl lg:text-xl text-white -z-50 py-3">
                                         About us
                                     </div>
-                                    <div className="text-gray-300 text-secondary">
+                                    <div className="text-gray-300 text-secondary text-[13px]">
                                         <ul className="hover:underline">
                                             <a href="about-us">About us</a>
                                         </ul>

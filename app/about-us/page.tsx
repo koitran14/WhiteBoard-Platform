@@ -1,55 +1,43 @@
-// "use client"
+"use client"
 
-import Image from "next/image";
-import Link from 'next/link';
-import { TypeAnimation } from "react-type-animation";
-import { TeamMember } from "./_components/team-member";
-import { ValueCard } from "./_components/value-card";
-// import Image from "next/image";
-// import Link from 'next/link';
-// import { TypeAnimation } from "react-type-animation";
-// import { TeamMember } from "./_component/team-member";
-// import { ValueCard } from "./_component/value-card";
 
-import Punchline from "./_component/Punchline";
-import Intro from "./_component/Introduce-member";
-import WordUs from "./_component/Word-from-us";
-import Value from "./_component/Value";
-import GetStart from "./_component/Getstart";
-import FooterAU from "./_component/Footer";
+import Punchline from "./_components/Punchline";
+import Intro from "./_components/Introduce-member";
+import Value from "./_components/Value";
+import GetStart from "./_components/Getstart";
 import { 
     useState,
-    useEffect
+    useEffect,
+    useRef
 } from "react";
 import Lenis from '@studio-freight/lenis'
 
 const Page = () => {
-  // const [dimension, setDimension] = useState({ width: 0, height: 0 });
-  // const { height } = dimension;  
 
-  // useEffect(() => {
-  //   const lenis = new Lenis();
+  const containerRef = useRef(null);
 
-  //   const raf = (time : any) => {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   };
+  useEffect(() => {
+    const lenis = new Lenis();
 
-  //   const resize = () => {
-  //     setDimension({ width: window.innerWidth, height: window.innerHeight });
-  //   };
+    lenis.on('scroll',(e) => {
+      console.log(e);
+    });
 
-  //   window.addEventListener("resize", resize);
-  //   requestAnimationFrame(raf);
-  //   resize();
+    function raf(time : any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-  //   return () => {
-  //     window.removeEventListener("resize", resize);
-  //   };
-  // }, []);
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   return (
-    <div>
+    
+    <div ref={containerRef}>
       <Punchline />
       <Intro />
       <Value />

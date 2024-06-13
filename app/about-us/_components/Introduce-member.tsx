@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 
 import Image from "next/image";
@@ -44,25 +46,7 @@ const quicksand = Quicksand({
 const quicksandB = Quicksand({
     subsets: ["latin"],
     weight: ["400"]
-});
-
-const draw = {
-    hidden: { pathLength: 0, opacity: 0, strokeWidth: 0 },
-    visible: (i) => {
-      const delay = 1 + i * 0.5;
-      return {
-        pathLength: 1,
-        opacity: 1,
-        strokeWidth: 0.5,  // Thêm thuộc tính strokeWidth với giá trị mong muốn
-        transition: {
-          pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-          opacity: { delay, duration: 0.01 },
-          strokeWidth: { delay, duration: 1.5 }  // Thêm transition cho strokeWidth
-        }
-      };
-    }
-  };
-  
+});  
 
 const Intro = () => {
     return (
@@ -240,7 +224,7 @@ const Intro = () => {
                                     "text-white xl:text-[40px] text-[20px] place-self-end",
                                     quicksandB.className
                                 )}>
-                                    Front-end Dev
+                                    ITCSIU21071
                                 </p>
                             </motion.div>
                         </div>
@@ -264,7 +248,7 @@ const Intro = () => {
                                     "relative text-white xl:text-[40px] text-[20px]",
                                     quicksandB.className
                                 )}>
-                                    Full-stack Dev
+                                    ITCSIU21071
                                 </p>
                             </motion.div>
                         </div>

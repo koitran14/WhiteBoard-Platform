@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { 
@@ -34,6 +35,11 @@ const quicksand = Quicksand({
   weight: ["400"]
 })
 
+const quicksandB = Quicksand({
+  subsets: ["latin"],
+  weight: ["600"]
+});  
+
 import { fadeIn, moveIn } from "../variants.js";
 
 
@@ -59,49 +65,59 @@ const Punchline = () => {
                   />
                 </div>
                 {/* Text  */}
-                <div className="relative flex flex-col mx-[200px]">
+                <div className="relative flex flex-col mx-[150px] top-[-30px] ">
 
                   <div className="relative flex flex-row gap-x-10">
                     <div className={cn(
-                      "lg:text-[100px] text-[90px] text-black",
-                      quicksand.className
+                      "lg:text-[120px] text-[90px] text-redplum font-bold",
+                      quicksandB.className
                     )}>
                       make                
                     </div>
 
                     <div className={cn(
-                      "lg:text-[100px] text-[90px] text-milkwhite",
-                      quicksand.className
+                      "lg:text-[120px] text-[90px] text-redplum",
+                      quicksandB.className
                     )}>
-                      <TypeAnimation
-                      sequence={[
-                      'it',
-                      2000,
-                      'brainstorming',
-                      2000,
-                      'visualization',
-                      2000,
-                      'collaboration',
-                      2000,
-                      ]}
-                      speed={30}
-                      className={cn(
-                        "text-black text-[100px]",
-                        quicksand.className
-                      )}
-                      wrapper="span"
-                      repeat={Infinity}
-                      />
                       
+                      it
                     </div>
                   </div>
                   <div className={cn(
-                    "relative top-[-30px] text-[100px]  text-black place-self-end",
-                    quicksand.className
+                    "relative flex flex-row text-oceantext place-self-end",
+                    quicksandB.className
                   )}>
-                    <p>
-                      into reality
-                    </p>
+                    <div className="text-[25px] font-bold">
+                        <span className="underline decoration-slice mr-[10px]">
+                          Distance
+                        </span>
+                        
+                          is no longer a hindrance to coming up with ideas together
+                        
+                    </div>
+                    <div className="relative top-[-45px] text-[120px]">
+                      <p className="flex flex-row gap-x-[30px]">
+                        <p className="text-redplum">
+                          into
+                        </p> 
+                        <span className="text-milkwhite bg-redplum">
+                          <TypeAnimation
+                          sequence={[
+                          'reality',
+                          2000,
+                          
+                          ]}
+                          speed={30}
+                          className={cn(
+                            "text-milkwhite text-[120px]",
+                            quicksandB.className
+                          )}
+                          wrapper="span"
+                          repeat={Infinity}
+                          />
+                        </span>
+                      </p>
+                    </div>
                   </div>
                 </div>
                 {/* Slider 2 */}
@@ -123,23 +139,3 @@ const Punchline = () => {
 
 export default Punchline;
 
-
-// "use client";
-
-// import { Carousel } from "flowbite-react";
-
-// const Punchline = () => {
-//   return (
-//     <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-//       <Carousel>
-//         <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-//         <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-//         <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-//         <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-//         <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
-//       </Carousel>
-//     </div>
-//   );
-// }
-
-// export default Punchline;
