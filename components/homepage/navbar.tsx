@@ -26,7 +26,7 @@ const Navbar = () => {
     
     return ( 
             <div className={cn("shadow-md dark:shadow-slate-900 bg-white/50 dark:bg-black/80 w-[98%] h-24 z-20 flex flex-row items-center justify-between px-8 md:px-16 transition-all duration-300 rounded-3xl border border-black mx-[1%] mt-2",
-                isScrolled && " backdrop-blur-md"
+                isScrolled && " backdrop-blur-md border-none"
             )}>                 
                <div className="w-fit h-full group flex flex-row items-center gap-x-2">
                     <Image 

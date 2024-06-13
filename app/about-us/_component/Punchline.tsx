@@ -1,12 +1,4 @@
 import React from "react";
-import { Carousel } from "flowbite-react";
-
-// import backache from "../../../public/ache/backache.jpg";
-// import body from "../../../public/ache/body.png";
-// import handache from "../../../public/ache/handache.jpg";
-
-import banner from "../_assets/banner.png";
-
 import Image from "next/image";
 import { 
   Raleway,
@@ -17,7 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { TypeAnimation } from "react-type-animation";
 
-import punchline from "../_assets/punchline.svg";
+import punchline from "/public/about_us/punchline.svg";
 import { motion } from "framer-motion";
 
 
@@ -42,7 +34,7 @@ const quicksand = Quicksand({
   weight: ["400"]
 })
 
-import { fadeIn, moveIn } from "../variants";
+import { fadeIn, moveIn } from "../variants.js";
 
 
 const Punchline = () => {
@@ -55,14 +47,14 @@ const Punchline = () => {
           viewport={{ once: false, amount: 0.6 }}
           className="bg-yellowsuperpastel"
         >
-          <div className="bg-cover bg-center ">
-            <div className="relative pt-32 px-[50px] pb-[50px] max-w-screen min-h-screen">
+          <div className="bg-cover bg-center "> 
+            <div className="relative pt-32 px-[80px] pb-[50px] max-w-screen min-h-screen ">
                 {/* Image */}
-                <div className="relative ">
+                <div className="relative w-[98%] mx-auto">
                   <Image
                     src={punchline}
                     alt=""
-                    width={30000}
+                    width={1500}
                     className="relative rounded-[20px] border border-black "
                   />
                 </div>
@@ -71,14 +63,14 @@ const Punchline = () => {
 
                   <div className="relative flex flex-row gap-x-10">
                     <div className={cn(
-                      "lg:text-[120px] text-[90px] text-black",
+                      "lg:text-[100px] text-[90px] text-black",
                       quicksand.className
                     )}>
                       make                
                     </div>
 
                     <div className={cn(
-                      "lg:text-[120px] text-[90px] text-milkwhite",
+                      "lg:text-[100px] text-[90px] text-milkwhite",
                       quicksand.className
                     )}>
                       <TypeAnimation
@@ -94,7 +86,7 @@ const Punchline = () => {
                       ]}
                       speed={30}
                       className={cn(
-                        "text-black text-[120px]",
+                        "text-black text-[100px]",
                         quicksand.className
                       )}
                       wrapper="span"
@@ -104,7 +96,7 @@ const Punchline = () => {
                     </div>
                   </div>
                   <div className={cn(
-                    "text-[120px]  text-black place-self-end",
+                    "relative top-[-30px] text-[100px]  text-black place-self-end",
                     quicksand.className
                   )}>
                     <p>

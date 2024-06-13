@@ -8,7 +8,7 @@ const HomePageLayout = ({
 }) => {
     return (
         <div className="w-full h-full relative flex flex-col">
-            <div className="w-full h-fit fixed top-0 left-0 z-50">
+            <div className="w-full h-fit fixed top-0 left-0 z-50 md:px-20">
                 <Navbar/>
             </div>
             <Section >

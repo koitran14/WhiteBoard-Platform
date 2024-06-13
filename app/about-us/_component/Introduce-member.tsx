@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
-import { fadeIn, moveIn } from "../variants";
+import { fadeIn, moveIn } from "../variants.js";
 
 import { 
     Raleway,
@@ -15,12 +15,11 @@ import {
 
 import { cn } from "@/lib/utils";
 
-import banner from "@/app/about-us/_assets/banner.png";
-import dangkhoi from "@/app/about-us/_assets/dangkhoi.jpg";
-import quanghuy from "@/app/about-us/_assets/quanghuy.jpg";
+import dangkhoi from "/public/about_us/dangkhoi.jpg";
+import quanghuy from "/public/about_us/quanghuy.jpg";
 
-import charDK from "@/app/about-us/_assets/charDK.svg";
-import charQH from "@/app/about-us/_assets/charQH.svg";
+import charDK from "/public/about_us/charDK.svg";
+import charQH from "/public/about_us/charQH.svg";
 
 const raleway = Raleway({
     subsets: ["latin"],
@@ -69,7 +68,7 @@ const Intro = () => {
     return (
         <div className="bg-milkwhite">
             <   div className="relative bg-white px-[50px] pt-[158px] pb-[50px] max-w-screen min-h-screen rounded-b-[50px]">
-                <div>
+                {/* <div>
                         <motion.svg
                                 width="1808"
                                 height="800"
@@ -80,7 +79,7 @@ const Intro = () => {
                                 viewport={{once: false, amount: 0.6 }}
 
                                 className="absolute z-10"
-                            >
+                            > */}
                                 {/* <motion.line
                                     x1="926px"
                                     y1="0px"
@@ -100,8 +99,8 @@ const Intro = () => {
                                     variants={draw}
                                     custom={3}
                                 /> */}
-                        </motion.svg>
-                </div>
+                        {/* </motion.svg>
+                </div> */}
                 
                 <motion.div 
                     variants={fadeIn("bottom", 0.2)}
@@ -110,7 +109,7 @@ const Intro = () => {
                     viewport={{ once: false, amount: 0.6 }}
                     className="
                     relative
-                    bg-oceantext rounded-[20px] px-[100px] py-[50px] h-[800px] w-full 
+                    bg-oceantext rounded-[20px] px-[100px] py-[50px] h-[80%] w-full 
                     
                 ">
                     <div className="relative
@@ -129,11 +128,11 @@ const Intro = () => {
                             >
                                 <div className="relative rounded-l-[30px]
                                     bg-gradient-to-r from-white to-oceantext
-                                    xl:w-full xl:h-[300px] 
+                                    xl:w-full xl:h-fit 
                                     w-[500px] h-[250px] 
                                     mx-auto
                                     flex flex-col
-                                    p-[20px]
+                                    p-[10px]
                                     "
                                 >
                                     {/* Image */}
@@ -141,22 +140,22 @@ const Intro = () => {
                                         <Image
                                         src={dangkhoi}
                                         alt=""
-                                        width={550}
+                                        width={450}
                                         className="relative rounded-[20px] "
                                         />
 
                                         <Image
                                         src={charDK}
                                         alt=""
-                                        width={300}
+                                        width={227}
                                         className="absolute 
-                                            xl:left-[595px] xl:top-[-2px] 
+                                            xl:left-[460px] xl:top-[-2px] 
                                             left-[190px] top-[-250px]
                                             "
                                         />
                                     </div>
                                     {/* Button */}
-                                    <div className="flex flex-row gap-x-4 my-[25px]">
+                                    <div className="flex flex-row gap-x-4 mt-[10px]">
                                         {/* 1 */}
                                         <div>
                                             <button className={cn(
@@ -281,12 +280,12 @@ const Intro = () => {
                                     
                                     bg-gradient-to-l from-white to-oceantext
 
-                                    xl:w-full xl:h-[300px] 
+                                    xl:w-full xl:h-fit 
                                     w-[500px] h-[250px] 
                                     mx-auto
                                     flex flex-col
-                                    px-[20px] pt-[25px] pb-[20px]
-                                    gap-y-[25px]
+                                    px-[10px] pt-[10px] pb-[10px]
+                                    gap-y-[10px]
 "
                                 >   
                                     <div className="flex flex-row gap-x-4 place-self-end">
@@ -341,16 +340,16 @@ const Intro = () => {
                                     <Image
                                     src={quanghuy}
                                     alt=""
-                                    width={550}
+                                    width={450}
                                     className="relative rounded-[20px] place-self-end  "
                                     />
 
                                     <Image
                                     src={charQH}
                                     alt=""
-                                    width={300}
+                                    width={226}
                                     className="absolute 
-                                        xl:left-[-70px] xl:top-[-1px] 
+                                        xl:left-[-50px] xl:top-[-1px] 
                                         left-[190px] top-[-250px]
                                         "
                                     />

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(homepage)/home/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(homepage)/home/page.tsx", "app/about-us/_component/Value.js", "app/about-us/variants.js"],
   "exclude": ["node_modules"]
 }
