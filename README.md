@@ -1,7 +1,7 @@
 ﻿# Whiteboard-Platform
 
 ## Relative Documentation
-- To get the server side, access this [repo](https://github.com/koitran14/Whiteboard-Server]
+- To get the server side, access this [repo](https://github.com/koitran14/Whiteboard-Server)
 - Access our slide for presentation [here](https://www.canva.com/design/DAGIH0bpqp0/d5g7_Gf8aCOMUQ-QjNwDYg/edit?utm_content=DAGIH0bpqp0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
 ## Installation
