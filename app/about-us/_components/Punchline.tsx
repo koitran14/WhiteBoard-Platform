@@ -120,15 +120,6 @@ const Punchline = () => {
                     </div>
                   </div>
                 </div>
-                {/* Slider 2 */}
-                {/* <div className="my-28 md:my-8 py-12 flex flex-col w-full mx-auto md:flex-row-reverse items-center justify-between gap-12">
-                  <div>
-                    <img src="../_assets/banner.png" alt="" />
-
-                  </div>
-                </div> */}
-              
-              {/* </Carousel> */}
             </div>
           </div>
         </motion.div>
