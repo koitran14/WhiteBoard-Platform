@@ -79,7 +79,7 @@ export const BoardCard = ({
     }
 
     return (
-        <div className="group aspect-[100/127] border rounded-lg flex
+        <div className="group aspect-[100/127] border rounded-lg flex cursor-pointer
             flex-col justify-between overflow-hidden relative" onClick={onClick}>
                 <div className="relative flex-1 bg-amber-50">
                     <Image 

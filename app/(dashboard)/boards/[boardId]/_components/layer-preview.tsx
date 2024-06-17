@@ -42,6 +42,7 @@ export const LayerPreview = memo(({
                     stroke={selectionColor}
                 />
             )
+
         case LayerType.Note:
             return (
                 <Note
@@ -51,6 +52,7 @@ export const LayerPreview = memo(({
                     selectionColor={selectionColor}
                 />
             );
+
         case LayerType.Text:
             return (
                 <Text
@@ -60,6 +62,7 @@ export const LayerPreview = memo(({
                     selectionColor={selectionColor}
                 />
             );
+            
         case LayerType.Ellipse:
             return (
                 <Ellipse
@@ -78,6 +81,7 @@ export const LayerPreview = memo(({
                     selectionColor={selectionColor}
                 />
             );
+
         default:
             console.warn("Unknown layer type");
             return null;

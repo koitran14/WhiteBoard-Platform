@@ -71,7 +71,6 @@ export const Canvas = ({
         b: 0,
     });
 
-    //redo and undo by using History of liveblocks cause we're working on Liveblocks layers.
     const history = useHistory();
     const canUndo = useCanUndo();
     const canRedo = useCanRedo();

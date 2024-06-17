@@ -1,5 +1,4 @@
 import { type ClassValue, clsx } from "clsx";
-// import React from "react";
 import { twMerge } from "tailwind-merge";
 
 import { 
@@ -12,7 +11,6 @@ import {
   PathLayer,
   LayerType
 } from "@/types/canvas";
-import { HeightIcon } from "@radix-ui/react-icons";
 
 const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 
