@@ -1,5 +1,7 @@
 ﻿# Whiteboard-Platform
 
+To get the server side, access this (repo)[https://github.com/koitran14/Whiteboard-Server]
+
 1. Create `.env` file
 
 2. Copy this one:
