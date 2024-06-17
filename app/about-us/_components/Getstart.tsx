@@ -141,7 +141,7 @@ const GetStart = () => {
                                         <ul className="hover:underline">
                                             <a href="/introduction">Introduction</a>
                                         </ul>
-                                        <ul className="hover:underline">Feartures</ul>
+                                        <ul className="hover:underline">Features</ul>
                                     </div>
                                 </div>
                                 <div className="relative left-[40px]">
@@ -159,7 +159,6 @@ const GetStart = () => {
                                             <p >Contact:</p>
                                             <p >
                                                 <p className="px-2 hover:underline">tpqhnep001@gmail.com</p>
-                                                {/* <p className="px-2 hover:underline">tpqhnep001@gmail.com</p> */}
                                             </p>
                                         </ul>
                                     </div>

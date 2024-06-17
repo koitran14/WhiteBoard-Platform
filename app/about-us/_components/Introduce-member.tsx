@@ -51,41 +51,7 @@ const quicksandB = Quicksand({
 const Intro = () => {
     return (
         <div className="bg-milkwhite">
-            <   div className="relative bg-white px-[50px] pt-[158px] pb-[50px] max-w-screen min-h-screen rounded-b-[50px]">
-                {/* <div>
-                        <motion.svg
-                                width="1808"
-                                height="800"
-                                viewBox="0 0 1800 800"
-                                initial="hidden"
-                                whileInView="show"
-                                animate="visible"
-                                viewport={{once: false, amount: 0.6 }}
-
-                                className="absolute z-10"
-                            > */}
-                                {/* <motion.line
-                                    x1="926px"
-                                    y1="0px"
-                                    x2="926px"
-                                    y2="800px"
-                                    stroke="#000"
-                                    variants={draw}
-                                    custom={1}
-                                />
-                                <motion.rect
-                                    width="1801"
-                                    height="798"
-                                    x="-3"
-                                    y="1"
-                                    rx="20"
-                                    stroke="#000"
-                                    variants={draw}
-                                    custom={3}
-                                /> */}
-                        {/* </motion.svg>
-                </div> */}
-                
+            <   div className="relative bg-white px-[50px] pt-[158px] pb-[50px] max-w-screen min-h-screen rounded-b-[50px]">                
                 <motion.div 
                     variants={fadeIn("bottom", 0.2)}
                     initial="hidden"
@@ -155,22 +121,7 @@ const Intro = () => {
                                                 </div>
                                             </button>
                                         </div>
-                                        {/* 2 */}
-                                        {/* <div>
-                                            <button className={cn(
-                                                "bg-white hover:bg-freshorange text-black hover:text-milkwhite font-bold py-2 px-4 rounded-full w-[130px]",
-                                                raleway.className
-                                            )}>
-                                            
-                                                <div className="flex flex-row gap-x-1 items-center justify-center">
-                                                    <a href="sign-up">Facebook</a>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                                        </svg>
-                                                    
-                                                </div>
-                                            </button>
-                                        </div> */}
+                                    
                                         {/* 3 */}
                                         <div>
                                             <button className={cn(
@@ -187,19 +138,6 @@ const Intro = () => {
                                             </button>
                                         </div>
 
-                                        {/* ID */}
-                                        {/* <div>
-                                            <button className={cn(
-                                                "bg-white hover:bg-freshorange text-black hover:text-milkwhite font-bold py-2 px-4 rounded-full",
-                                                quicksandB.className
-                                            )}>
-                                            
-                                                <div className="flex flex-row gap-x-1">
-                                                    | ITCSIU21071
-
-                                                </div>
-                                            </button>
-                                        </div> */}
                                     </div>
                                 </div>
                             </motion.div>
@@ -288,22 +226,6 @@ const Intro = () => {
                                                 </div>
                                             </button>
                                         </div>
-                                        {/* 2 */}
-                                        {/* <div>
-                                            <button className={cn(
-                                                "bg-white hover:bg-freshorange text-black hover:text-milkwhite font-bold py-2 px-4 rounded-full w-[130px]",
-                                                raleway.className
-                                            )}>
-                                            
-                                                <div className="flex flex-row gap-x-1 items-center justify-center">
-                                                    <a href="sign-up">Facebook</a>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                                        </svg>
-                                                    
-                                                </div>
-                                            </button>
-                                        </div> */}
                                         {/* 3 */}
                                         <div>
                                             <button className={cn(
