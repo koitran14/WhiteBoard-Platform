@@ -5,7 +5,6 @@ import Intro from "./_components/Introduce-member";
 import Value from "./_components/Value";
 import GetStart from "./_components/Getstart";
 import { 
-    useState,
     useEffect,
     useRef,
 } from "react";
