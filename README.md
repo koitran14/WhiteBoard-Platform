@@ -1,5 +1,12 @@
 ﻿# Whiteboard-Platform
 
+## Relative Documentation
+- To get the server side, access this [WhiteBoard-Server repository](https://github.com/koitran14/Whiteboard-Server).
+- Get our report [here](https://github.com/koitran14/WhiteBoard-Platform/blob/main/Final%20Report%20-%20Group%20Upin%26Ipin.pdf).
+- Access our slide for presentation [here](https://www.canva.com/design/DAGIH0bpqp0/d5g7_Gf8aCOMUQ-QjNwDYg/edit?utm_content=DAGIH0bpqp0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
+
+## Installation
+
 1. Create `.env` file
 
 2. Copy this one:
