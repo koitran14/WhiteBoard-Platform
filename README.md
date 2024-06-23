@@ -9,6 +9,7 @@
 ## 📋 Table of Contents
 
 - [Introduction](#introduction)
+- [Team](#team)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -16,13 +17,19 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [Team](#team)
 
 ## 📝 Introduction
 
 Welcome to the WhiteBoard Platform repository! This project aims to provide an interactive whiteboard for collaborative work and educational purposes. Users can draw, annotate, and share their boards in real-time, making it an ideal tool for remote learning, brainstorming sessions, and team collaborations.
 
 **Note:** This repository contains the client-side code for the WhiteBoard Platform. For the server-side code, please refer to the [WhiteBoard-Server repository](https://github.com/koitran14/WhiteBoard-Server).
+
+## 👥 Team
+
+| Full Name                                 | Student ID    |
+|-------------------------------------------|---------------|
+| [Trần Ngọc Đăng Khôi](https://github.com/koitran14) | ITCSIU21197   |
+| [Trần Phương Quang Huy](https://github.com/KengG1M)                     | ITCSIU21071   |
 
 ## ✨ Features
 
@@ -116,12 +123,6 @@ If you have any questions or feedback, feel free to reach out:
 - **GitHub Issues**: [Submit an issue](https://github.com/koitran14/WhiteBoard-Platform/issues)
 - **Email**: [tndkhoi.work@gmail.com](tndkhoi.work@gmail.com)
 
-## 👥 Team
-
-| Full Name                                 | Student ID    |
-|-------------------------------------------|---------------|
-| [Trần Ngọc Đăng Khôi](https://github.com/koitran14) | ITCSIU21197   |
-| [Trần Phương Quang Huy](https://github.com/KengG1M)                     | ITCSIU21071   |
 
 ---
 
