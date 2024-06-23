@@ -13,28 +13,6 @@ import { TypeAnimation } from "react-type-animation";
 import punchline from "/public/about_us/punchline.svg";
 import { motion } from "framer-motion";
 
-
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight:["300"],
-});
-
-const notosans = Noto_Sans({
-  subsets: ["latin"],
-  weight: ["300"],
-});
-
-const marcellus = Marcellus({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["400"]
-})
-
 const quicksandB = Quicksand({
   subsets: ["latin"],
   weight: ["600"]

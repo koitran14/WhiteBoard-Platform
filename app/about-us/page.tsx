@@ -11,31 +11,50 @@ import {
 import Lenis from '@studio-freight/lenis'
 import dynamic from "next/dynamic";
 
+type LenisScrollEvent = {
+  scrollY: number;
+  scrollX: number;
+  velocity: number;
+  direction: 'up' | 'down' | 'left' | 'right';
+  progress: number;
+};
+
 const Page = () => {
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const lenis = new Lenis();
+    const handleScroll = (e: Event) => {
+      const target = e.target as Document;
+      const scrollY = target.documentElement.scrollTop;
+      const scrollX = target.documentElement.scrollLeft;
+      console.log({ scrollY, scrollX });
+    };
+    
+    const lenis = new Lenis({
+      smoothWheel: true
+    });
 
-    lenis.on('scroll',(e) => {
+    lenis.on('scroll', (e: LenisScrollEvent) => {
       console.log(e);
     });
 
-    function raf(time : any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    let animationFrameId: number;
 
-    requestAnimationFrame(raf);
+    const raf = (time: number) => {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
+    };
+
+    animationFrameId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
       lenis.destroy();
     };
-  }, []);
+  }, [containerRef]);
 
   return (
-    
     <div ref={containerRef}>
       <Punchline />
       <Intro />
@@ -45,4 +64,4 @@ const Page = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Page), {ssr: false})
+export default dynamic(() => Promise.resolve(Page), { ssr: false });

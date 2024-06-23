@@ -9,10 +9,7 @@ import { fadeIn, moveIn } from "../variants.js";
 
 import { 
     Raleway,
-    Noto_Sans,
-    Marcellus,
-    Quicksand
-    
+    Quicksand    
 } from "next/font/google";
 
 import { cn } from "@/lib/utils";
@@ -26,21 +23,6 @@ import charQH from "/public/about_us/charQH.svg";
 const raleway = Raleway({
     subsets: ["latin"],
     weight:["400"],
-});
-
-const notosans = Noto_Sans({
-    subsets: ["latin"],
-    weight: ["300"],
-});
-
-const marcellus = Marcellus({
-    subsets: ["latin"],
-    weight: ["400"],
-});
-
-const quicksand = Quicksand({
-    subsets: ["latin"],
-    weight: ["300"]
 });
 
 const quicksandB = Quicksand({
