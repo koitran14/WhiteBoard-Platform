@@ -20,7 +20,7 @@ export async function setFavorite(userId: string, boardId: string) {
 }
 
 const addFavorite = async(userId: string, boardId:string) => {
-    return await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/favorites/${userId}/${boardId}`);
+    return await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/faNvorites/${userId}/${boardId}`);
 }
 
 const removeFavorite = async(userId: string, boardId:string) => {
