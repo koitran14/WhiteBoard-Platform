@@ -7,12 +7,6 @@ export interface Favorite {
     isFavorite: boolean,
 }
 
-// export async function setFavorite(userId: string, boardId: string, isFavorite: boolean){
-//     return await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/favorites/${userId}/${boardId}`,{ 
-//         isFavorite : isFavorite
-//     });
-// }
-
 export async function checkedIfFavoriteorNot(userId: string, boardId: string): Promise<boolean> {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/favorites/check/${userId}/${boardId}`)
     return response.data.isFavorite;
@@ -20,6 +14,7 @@ export async function checkedIfFavoriteorNot(userId: string, boardId: string): P
 
 export async function setFavorite(userId: string, boardId: string) {
     let checked = await checkedIfFavoriteorNot(userId, boardId);
+    console.log(checked);
     const response = checked ? removeFavorite(userId, boardId) : addFavorite(userId, boardId);
     return response;
 }

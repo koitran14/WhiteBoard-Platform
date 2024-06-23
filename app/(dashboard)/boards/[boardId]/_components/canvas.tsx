@@ -252,7 +252,7 @@ export const Canvas = ({
         { storage, self},
         point: Point,
     ) => {
-        if(canvasState.mode !== CanvasMode.Resizing){
+        if (canvasState.mode !== CanvasMode.Resizing){
             return;
         }
 
@@ -266,7 +266,7 @@ export const Canvas = ({
 
         const layer = liveLayers.get(self.presence.selection[0]);
 
-        if(layer) {
+        if (layer) {
             layer.update(bounds);
         };
 
@@ -432,7 +432,6 @@ export const Canvas = ({
         return layerIdsToColorSelection;
     }, [selections])
 
-    // for undo/redo keystrokes
     const deleteLayers = useDeleteLayers()
 
     const [canPaste, setCanPaste] = useState(false);
