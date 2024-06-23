@@ -89,8 +89,8 @@ Ensure you have the following installed on your local development environment:
 ## 📚 Relative Documentation
 
 - To get the server-side code, access this [WhiteBoard-Server repository](https://github.com/koitran14/WhiteBoard-Server).
-- Get our report [here](link-to-report).
-- Access our slide for presentation [here](link-to-presentation).
+- Get our report [HERE](https://github.com/koitran14/WhiteBoard-Platform/blob/main/Final%20Report%20-%20Group%20Upin%26Ipin.pdf).
+- Access our slide for presentation [HERE](https://www.canva.com/design/DAGIH0bpqp0/d5g7_Gf8aCOMUQ-QjNwDYg/edit?utm_content=DAGIH0bpqp0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
 ## 🤝 Contributing
 
@@ -107,14 +107,14 @@ Please make sure to update tests as appropriate and adhere to the code style gui
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/koitran14/WhiteBoard-Platform/blob/main/LICENSE) file for details.
 
 ## 📬 Contact
 
 If you have any questions or feedback, feel free to reach out:
 
 - **GitHub Issues**: [Submit an issue](https://github.com/koitran14/WhiteBoard-Platform/issues)
-- **Email**: koitran@example.com
+- **Email**: [tndkhoi.work@gmail.com](tndkhoi.work@gmail.com)
 
 ## 👥 Team
 
