@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🖥️ WhiteBoard Platform (Client-Side)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/koitran14/WhiteBoard-Platform)
@@ -5,6 +7,9 @@
 ![GitHub stars](https://img.shields.io/github/stars/koitran14/WhiteBoard-Platform?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/koitran14/WhiteBoard-Platform?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/koitran14/WhiteBoard-Platform)
+
+</div>
+
 
 ## 📋 Table of Contents
 
