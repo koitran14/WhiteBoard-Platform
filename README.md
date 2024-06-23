@@ -1,8 +1,5 @@
-Sure! Here's how you can include a table of team members in your README:
-
----
-
-# 🖥️ WhiteBoard Platform (Client-Side)
+# 🖥️ Sketcha.io
+_WhiteBoard Platform (Client-Side)_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/koitran14/WhiteBoard-Platform)
 ![GitHub contributors](https://img.shields.io/github/contributors/koitran14/WhiteBoard-Platform)
