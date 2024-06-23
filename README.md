@@ -128,7 +128,7 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 If you have any questions or feedback, feel free to reach out:
 
 - **GitHub Issues**: [Submit an issue](https://github.com/koitran14/WhiteBoard-Platform/issues)
-- **Email**: [tndkhoi.work@gmail.com](tndkhoi.work@gmail.com)
+- **Email**: tndkhoi.work@gmail.com
 
 
 #
