@@ -8,15 +8,15 @@
 
 ## 📋 Table of Contents
 
-- [Introduction](#introduction)
-- [Team](#team)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Relative Documentation](#relative-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Introduction](#-introduction)
+- [Team](#-team)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Relative Documentation](#-relative-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ## 📝 Introduction
 
