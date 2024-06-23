@@ -1,5 +1,4 @@
-# 🖥️ Sketcha.io
-_WhiteBoard Platform (Client-Side)_
+# 🖥️ WhiteBoard Platform (Client-Side)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/koitran14/WhiteBoard-Platform)
 ![GitHub contributors](https://img.shields.io/github/contributors/koitran14/WhiteBoard-Platform)
