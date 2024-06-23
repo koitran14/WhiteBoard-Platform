@@ -8,7 +8,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/koitran14/WhiteBoard-Platform?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/koitran14/WhiteBoard-Platform)
 
-![Project Banner](https://via.placeholder.com/800x200.png?text=Algorithm+Visualizer)
+![Project Banner](https://github.com/koitran14/WhiteBoard-Platform/blob/main/public/homepage/introduction-img.png?text=Algorithm+Visualizer)
 
 </div>
 
