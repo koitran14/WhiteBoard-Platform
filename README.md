@@ -132,4 +132,4 @@ If you have any questions or feedback, feel free to reach out:
 
 
 #
-Thank you for using WhiteBoard Platform! Happy collaborating! 🎨
+Note: This project was developed as part of the curriculum at the School of Computer Science and Engineering, International University.
